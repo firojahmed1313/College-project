@@ -33,6 +33,15 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.allButton{
+  display: flex;
+  justify-content: space-around;
+}
+.bookedButton{
+  color: #f0ebeb;
+  background-color: green;
+  border: none;
+}
 
 .Navber {
   /*border: 2px solid red;*/
@@ -214,4 +223,31 @@ form > input[type="submit"]:hover {
 .homeBlog .blogDetails .blogDetailsImage:hover{
   /*border: 2px solid blue;*/
   transform: scale(1.2);
+}
+
+.mapContener{
+   /* border: 2px solid black;*/
+    margin: 20px 5%;
+    display: flex;
+    width: 90%;
+
+}
+.showmapContener{
+  /*border: 2px solid green;*/
+  
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+}
+.mapsubContener{
+    /*border: 2px solid blue;*/
+    margin: 10px 20px;
+    box-shadow: 10px 10px 50px rgba(104, 165, 244, 0.25);
+    padding: 10px;
+
+}
+.map{
+  border: 2px solid yellow;
+  height: 90vh;
+  width: 50%;
 }
