@@ -81,11 +81,10 @@ const Register = () => {
             onChange={inputEvent}
           />
           {
-            //<input type="submit" value="Create Account" onClick={onSubmits} />
+            <input type="submit" value="Create Account" onClick={onSubmits} />
           }
-          <button onClick={() => onSubmits} type="submit">
-            Create Account
-          </button>
+          
+          
         </form>
       </div>
     </>

@@ -124,10 +124,8 @@ const AddCar = () => {
                     />
                     
                     
+                    <input type="submit" value="Add Car" />
                     
-                    <button onClick={() => onSubmits} type="submit">
-                         Add Car
-                    </button>
                 </form>
             </div>
         </>
