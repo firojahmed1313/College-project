@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import locationmap from '../assets/locationMap.png'; // with import
+
 
 const Map = () => {
     const onDetails = (e) => {
@@ -44,7 +46,7 @@ const Map = () => {
 
                 </div>
                 <div className='map'>
-
+                    <img src={locationmap} alt='map' className='mapimg'/>
                 </div>
             </div>
 

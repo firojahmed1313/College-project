@@ -32,7 +32,7 @@ const Payment = () => {
                         </button>
                     }
                     {(payment) ? <button type="submit" className='bookedButton'>
-                        Sucessfully Payment
+                        Payment Sucessfull
                     </button> :
                         <button onClick={onPayment} type="submit">
                             Payment

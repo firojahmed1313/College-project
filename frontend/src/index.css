@@ -247,7 +247,17 @@ form > input[type="submit"]:hover {
 
 }
 .map{
-  border: 2px solid yellow;
+  /*border: 2px solid yellow;*/
   height: 90vh;
   width: 50%;
+  overflow: hidden;
+}
+.map .mapimg{
+  
+  width: 100%;
+  aspect-ratio: 1.2;
+}
+.mapimg:hover{
+  
+  scale: 1.2;
 }
