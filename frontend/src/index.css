@@ -52,7 +52,7 @@ button:focus-visible {
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
-  background: #f5f5f5;
+  background: #cbcff7;
   box-shadow: 10px 10px 20px  rgba(0, 3, 7, 0.185);
 }
 
@@ -102,12 +102,15 @@ navitem:focus-visible {
   margin: 0%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: inherit;
-  
+  background-color: #141ff45f;
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 30px;
+  min-height: 80vh;
+  
 }
 
 form {
@@ -117,11 +120,12 @@ form {
   min-height: max(fit-content,80vh) ;
   border-radius: 5px;
   width: 40vw;
-  background-color: white;
+  background-color: #cbf7f7;
   align-items: center;
   justify-content: space-evenly;
   box-shadow: -10px 10px 10px rgba(0, 3, 7, 0.25);
   margin-bottom: 20px;
+  margin-top: 20px;
 
 }
 form > h1 {
@@ -226,36 +230,43 @@ form > input[type="submit"]:hover {
 }
 
 .mapContener{
-   /* border: 2px solid black;*/
+    /*border: 2px solid black;*/
     margin: 20px 5%;
     display: flex;
+    justify-content: space-around;
     width: 90%;
+    height: max-content;
 
 }
 .showmapContener{
   /*border: 2px solid green;*/
-  
+  background-color: #f7e1e7;
   display: flex;
-  width: 50%;
+  justify-content: space-between;
+  width: 43%;
   flex-wrap: wrap;
+  border-radius: 10px;
 }
 .mapsubContener{
     /*border: 2px solid blue;*/
     margin: 10px 20px;
     box-shadow: 10px 10px 50px rgba(104, 165, 244, 0.25);
-    padding: 10px;
-
+    padding:  3px 10px 10px 10px ;
+    background-color: #f2e1f7;
+    border-radius: 10px;
 }
 .map{
   /*border: 2px solid yellow;*/
-  height: 90vh;
+  height: 81vh;
   width: 50%;
+  
   overflow: hidden;
 }
 .map .mapimg{
   
   width: 100%;
   aspect-ratio: 1.2;
+  border-radius: 20px;
 }
 .mapimg:hover{
   
