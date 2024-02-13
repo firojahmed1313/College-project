@@ -1,9 +1,9 @@
-
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -23,21 +23,24 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  color:antiquewhite
-  
+  color: antiquewhite
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-.allButton{
+
+.allButton {
   display: flex;
   justify-content: space-around;
 }
-.bookedButton{
+
+.bookedButton {
   color: #f0ebeb;
   background-color: green;
   border: none;
@@ -53,14 +56,15 @@ button:focus-visible {
   align-items: center;
   border-radius: 10px;
   background: #cbcff7;
-  box-shadow: 10px 10px 20px  rgba(0, 3, 7, 0.185);
+  box-shadow: 10px 10px 20px rgba(0, 3, 7, 0.185);
 }
 
 .left {
   /*border: 2px solid green;*/
   margin-left: 30px;
 }
-.left h2{
+
+.left h2 {
   /*border: 2px solid green;*/
   color: #1a1a1a;
 }
@@ -80,9 +84,9 @@ button:focus-visible {
   font-weight: lighter;
 }
 
-.navitem:hover{
+.navitem:hover {
   border-radius: 8px;
-  border: 1px solid ;
+  border: 1px solid;
   padding: 0em 1.2em;
   font-size: 0.9em;
   font-weight: 300;
@@ -93,12 +97,13 @@ button:focus-visible {
   border-color: #646cffda;
   color: #f0ebeb;
 }
+
 navitem:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 .formbody {
-  
+
   margin: 0%;
   display: flex;
   justify-content: center;
@@ -110,14 +115,14 @@ navitem:focus-visible {
   margin-bottom: 20px;
   border-radius: 30px;
   min-height: 80vh;
-  
+
 }
 
 form {
-  
+
   display: flex;
   flex-direction: column;
-  min-height: max(fit-content,80vh) ;
+  min-height: max(fit-content, 80vh);
   border-radius: 5px;
   width: 40vw;
   background-color: #cbf7f7;
@@ -128,8 +133,9 @@ form {
   margin-top: 20px;
 
 }
-form > h1 {
-  
+
+form>h1 {
+
   color: rgba(0, 0, 0, 0.644);
   border-bottom: 1px solid rgba(0, 0, 0, 0.644);
   padding-bottom: 1vmax;
@@ -138,7 +144,8 @@ form > h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
 }
-form > input {
+
+form>input {
   padding: 1vmax;
   width: 30vw;
   outline: none;
@@ -150,7 +157,8 @@ form > input {
   margin-bottom: 15px;
   border-radius: 5px;
 }
-form > input[type="submit"] {
+
+form>input[type="submit"] {
   width: 20vw;
   border: none;
   cursor: pointer;
@@ -161,33 +169,35 @@ form > input[type="submit"] {
   font-size: 1.4vmax;
   transition: all 0.5s;
 }
-form > input[type="submit"]:hover {
+
+form>input[type="submit"]:hover {
   background-color: #c4342a;
 }
 
-/* home blog*/ 
+/* home blog*/
 
-.homeBlog{
- /*border: 2px solid black;*/
- margin-top: 30px;
- width: 90%;
- margin-left: 5% ;
- margin-right: 5%;
- border-radius: 20px;
- box-shadow: 10px 10px 50px rgba(104, 165, 244, 0.25);
- margin-bottom: 20px;
- padding-top: 15px;
- padding-bottom: 10px;
+.homeBlog {
+  /*border: 2px solid black;*/
+  margin-top: 30px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 20px;
+  box-shadow: 10px 10px 50px rgba(104, 165, 244, 0.25);
+  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 
-.homeBlog .blogTitle{
+.homeBlog .blogTitle {
   /*border: 2px solid pink;*/
   margin-left: 5%;
   margin-right: 5%;
-  
+
 }
-.homeBlog .blogAddOn{
+
+.homeBlog .blogAddOn {
   /*border: 2px solid green;*/
   margin-left: 10%;
   margin-right: 5%;
@@ -196,13 +206,15 @@ form > input[type="submit"]:hover {
   margin-bottom: 15px;
 
 }
-.homeBlog .blogAddOn .blogAddOntext{
+
+.homeBlog .blogAddOn .blogAddOntext {
   /*border: 2px solid blue;*/
-  margin-right: 20px ;
+  margin-right: 20px;
   margin: 0px 20px;
   color: red;
 }
-.homeBlog .blogDetails{
+
+.homeBlog .blogDetails {
   /*border: 2px solid yellow;*/
   margin-left: 5%;
   margin-right: 5%;
@@ -213,33 +225,65 @@ form > input[type="submit"]:hover {
   overflow: hidden;
 
 }
-.homeBlog .blogDetails .blogDescription{
+
+.homeBlog .blogDetails .blogDescription {
   /*border: 2px solid blue;*/
   margin: 20px;
 }
-.homeBlog .blogDetails .blogDetailsImage{
+
+.homeBlog .blogDetails .blogDetailsImage {
   /*border: 2px solid blue;*/
   max-height: 300px;
   max-width: 40%;
   min-width: 30%;
   border-radius: 20px;
-  
+
 }
-.homeBlog .blogDetails .blogDetailsImage:hover{
+
+.homeBlog .blogDetails .blogDetailsImage:hover {
   /*border: 2px solid blue;*/
   transform: scale(1.2);
 }
 
-.mapContener{
-    /*border: 2px solid black;*/
-    margin: 20px 5%;
-    display: flex;
-    justify-content: space-around;
-    width: 90%;
-    height: max-content;
+.homeImage {
+  height: 90dvh;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.homeContainer {
+
+  position: relative;
+  width: 30%;
+  left: 20%;
+  padding-top: 30vh;
+}
+
+.homeIcon {
+  display: flex;
+  align-items: center;
+  padding: 2px 25px;
+  margin: 30px 0px;
+  background-color: #cbf7f7;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #ddd4d4, #fffbfb);
+  box-shadow: 8px 8px 16px #d8cfcf,
+    -8px -8px 16px #ffffff;
+}
+
+.mapContener {
+  /*border: 2px solid black;*/
+  margin: 20px 5%;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  height: max-content;
 
 }
-.showmapContener{
+
+.showmapContener {
   /*border: 2px solid green;*/
   background-color: #f7e1e7;
   display: flex;
@@ -248,28 +292,162 @@ form > input[type="submit"]:hover {
   flex-wrap: wrap;
   border-radius: 10px;
 }
-.mapsubContener{
-    /*border: 2px solid blue;*/
-    margin: 10px 20px;
-    box-shadow: 10px 10px 50px rgba(104, 165, 244, 0.25);
-    padding:  3px 10px 10px 10px ;
-    background-color: #f2e1f7;
-    border-radius: 10px;
+
+.mapsubContener {
+  /*border: 2px solid blue;*/
+  margin: 10px 20px;
+  box-shadow: 10px 10px 50px rgba(104, 165, 244, 0.25);
+  padding: 3px 10px 10px 10px;
+  background-color: #f2e1f7;
+  border-radius: 10px;
 }
-.map{
+
+.map {
   /*border: 2px solid yellow;*/
   height: 81vh;
   width: 50%;
-  
+
   overflow: hidden;
 }
-.map .mapimg{
-  
+
+.map .mapimg {
+
   width: 100%;
   aspect-ratio: 1.2;
   border-radius: 20px;
 }
-.mapimg:hover{
-  
+
+.mapimg:hover {
+
   scale: 1.2;
+}
+
+.profile {
+  /*border: 2px solid red ;*/
+  margin-top: 15px;
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.profileNav {
+  /*border: 2px solid blue ;*/
+  width: 20%;
+  border-radius: 20px;
+  background-color: #a6a9e8;
+  box-shadow: -10px 10px 70px rgba(69, 102, 146, 0.25);
+  height: max-content;
+  position: fixed;
+}
+
+.profileBlog {
+  /*border: 2px solid green ;*/
+  width: 75%;
+  position: absolute;
+  left: 25%;
+
+}
+
+.NavProfile {
+  /*border: 2px solid green ;*/
+
+  margin: 10% 10px;
+
+
+}
+
+.ProfileData {
+  /*border: 2px solid pink ;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profileImage {
+  margin-top: 15px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+
+}
+
+.profilename {
+  /*border: 2px solid red ;*/
+  width: 90%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+
+}
+
+.profileemail {
+  /*border: 2px solid red ;*/
+  width: 90%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0px;
+}
+
+.ProfileLink {
+  /*border: 2px solid red ;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.Linkitem {
+  color: black;
+  font-weight: lighter;
+
+
+}
+
+.Linkitem:hover {
+  border-radius: 8px;
+  border: 1px solid;
+  padding: 0px 1.9rem;
+  font-size: 0.9em;
+  font-weight: 300;
+  font-family: inherit;
+  background-color: #bfb7b7a1;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  border-color: #646cffda;
+  color: #f0ebeb;
+}
+
+@media only screen and (max-width: 600px) {
+  .NavProfile {
+    /*border: 2px solid green;*/
+    margin: 0% 0px;
+  }
+
+  .ProfileData {
+    /*border: 2px solid pink;*/
+    margin-bottom: 10px;
+  }
+
+  .ProfileLink {
+    /*border: 2px solid red ;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+  }
+
+  .Linkitem {
+    padding-left: 10px;
+
+  }
+
 }

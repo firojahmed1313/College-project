@@ -1,8 +1,17 @@
 import React from 'react'
+import ProfileNav from '../components/ProfileNav'
+import ProfileUser from '../components/ProfileUser'
 
 const UserProfile = () => {
   return (
-    <div>UserProfile</div>
+    <div className="profile">
+      <div className="profileNav">
+        <ProfileNav />
+      </div>
+      <div className="profileBlog">
+        <ProfileUser/>
+      </div>
+    </div>
   )
 }
 
