@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 // DEPERT FROM       GOING TO 
 const Location = () => {
-    const [depert, setDepert] = useState("");
-    const [goingto, setGoingto] = useState("");
-
-    const onSubmit = async (e) => {
+    const [depert, setDepert] = useState();
+    const [goingto, setGoingto] = useState();
+    const navigate = useNavigate();
+    const onSubmits = async (e) => {
+        
         e.preventDefault();
         console.log(depert, goingto);
+
+        navigate('/mapDetails');
         
     }
     return (
@@ -26,7 +30,7 @@ const Location = () => {
                 theme="dark"
             />
             <div className="formbody">
-                <form onSubmit={onSubmit} >
+                <form onSubmit={onSubmits} >
                     <h1>Choose Destination</h1>
 
                     <input
@@ -35,7 +39,7 @@ const Location = () => {
                         name="depert"
                         id="depert"
                         value={depert}
-                        onChange={(e) => setDepert(e.target.value)}
+                        onChange={(e)=>setDepert(e.target.value)}
                     />
                     <input
                         placeholder="GOING TO"

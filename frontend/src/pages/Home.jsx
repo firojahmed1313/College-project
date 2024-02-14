@@ -28,14 +28,14 @@ const Home = () => {
                     <div className="homeIcon">
                         <DirectionsCarIcon fontSize="large" style={{ margin: "10px 15px" }} />
                         <h3 style={{ margin: "10px 15px" }} >I Want To Drive</h3>
-                        <Link to={"/payment"} className="navitem">
+                        <Link to={"/addcar"} className="navitem">
                             <h3><ArrowForwardIcon /></h3>
                         </Link>
                     </div>
                     <div className="homeIcon" >
                         <TagFacesIcon fontSize="large" style={{ margin: "10px 15px" }} />
                         <h3 style={{ margin: "10px 15px" }} >I Want To Ride</h3>
-                        <Link to={"/payment"} className="navitem">
+                        <Link to={"/register"} className="navitem">
                             <h3><ArrowForwardIcon /></h3>
                         </Link>                    
                     </div>

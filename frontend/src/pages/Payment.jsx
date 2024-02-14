@@ -10,6 +10,7 @@ const Payment = () => {
     const onBook = (e) => {
         setBook(true);
         console.log("Booking Sucessfull");
+        
     }
     return (
         <>

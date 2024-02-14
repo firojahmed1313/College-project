@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import locationmap from '../assets/locationMap.png'; // with import
+import { useNavigate } from 'react-router-dom';
 
 
 const Map = () => {
+    const navigate = useNavigate();
     const onDetails = (e) => {
 
         console.log("Sucessfull");
+        navigate('/payment')
     }
     return (
         <>

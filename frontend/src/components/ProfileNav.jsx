@@ -22,6 +22,9 @@ const ProfileNav = () => {
                 <Link to={"/"} className="Linkitem">
                     <h3>Home</h3>
                 </Link>
+                <Link to={"/location"} className="Linkitem">
+                    <h3>Book Rides</h3>
+                </Link>
                 <div className="Linkitem" onClick={logOut}>
                     <h3>Logout</h3>
                 </div>

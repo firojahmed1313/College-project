@@ -11,20 +11,9 @@ const Navber = () => {
 
         </div>
         <div className="right">
-          <Link to={"/payment"} className="navitem">
-            <h3>Payment</h3>
-          </Link>
-          <Link to={"/mapDetails"} className="navitem">
-            <h3>Map</h3>
-          </Link>
-          <Link to={"/location"} className="navitem">
-            <h3>Location</h3>
-          </Link>
+          
           <Link to={"/driverProfile"} className="navitem">
             <h3>Driver Profile</h3>
-          </Link>
-          <Link to={"/addcar"} className="navitem">
-            <h3>Add Car</h3>
           </Link>
           <Link to={"/userProfile"} className="navitem">
             <h3>User Profile</h3>
