@@ -10,6 +10,8 @@ import Payment from "./pages/Payment";
 import Location from "./pages/Location";
 import DriverProfile from "./pages/DriverProfile";
 import UserProfile from "./pages/UserProfile";
+import RegisterDriver from "./pages/RegisterDriver";
+import LoginDriver from "./pages/LoginDriver";
 const App = () => {
   return (
     <>
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/registerdriver" element={<RegisterDriver />} />
+        <Route path="/logindriver" element={<LoginDriver/>} />
         <Route path="/addcar" element={<AddCar />} />
         <Route path="/mapDetails" element={<MapDetails />} />
         <Route path="/payment" element={<Payment />} />

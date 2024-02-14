@@ -6,13 +6,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 const initialData = {
-    name: "",
     vehicle: "",
     category: "",
     phone_no: "",
     car_no: "",
-    licence_id: "",
-    password: "",
     depert: "",
     goingto: "",
     rent: "",
@@ -73,14 +70,6 @@ const AddCar = () => {
                         onChange={inputEvent}
                     />
                     <input
-                        placeholder="Enter Your Name"
-                        type="text"
-                        name="name"
-                        id="name"
-                        value={car.name}
-                        onChange={inputEvent}
-                    />
-                    <input
                         placeholder="Enter Your vehicle"
                         type="text"
                         name="vehicle"
@@ -104,22 +93,7 @@ const AddCar = () => {
                         value={car.category}
                         onChange={inputEvent}
                     />
-                    <input
-                        placeholder="Enter Your Licence Id"
-                        type="text"
-                        name="licence_id"
-                        id="licence_id"
-                        value={car.licence_id}
-                        onChange={inputEvent}
-                    />
-                    <input
-                        placeholder="Enter Your Password"
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={car.password}
-                        onChange={inputEvent}
-                    />
+                    
                     <input
                         placeholder="Enter Your Phone No"
                         type="text"

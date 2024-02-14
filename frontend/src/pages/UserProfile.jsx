@@ -6,7 +6,7 @@ const UserProfile = () => {
   return (
     <div className="profile">
       <div className="profileNav">
-        <ProfileNav />
+        <ProfileNav d="user" />
       </div>
       <div className="profilesub">
         <ProfileUser/>

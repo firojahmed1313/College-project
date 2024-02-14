@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import Avatar from "../assets/avatar.png";
 
-const ProfileNav = () => {
+const ProfileNav = ({d}) => {
+    console.log(d);
     const logOut=()=>{
         
     }
@@ -22,9 +23,17 @@ const ProfileNav = () => {
                 <Link to={"/"} className="Linkitem">
                     <h3>Home</h3>
                 </Link>
-                <Link to={"/location"} className="Linkitem">
+
+                { (d=="driver") ?
+                <Link to={"/addcar"} className="Linkitem">
+                    <h3>Add Car</h3>
+                </Link> 
+                :
+                    <Link to={"/location"} className="Linkitem">
                     <h3>Book Rides</h3>
-                </Link>
+                </Link> 
+
+                }
                 <div className="Linkitem" onClick={logOut}>
                     <h3>Logout</h3>
                 </div>

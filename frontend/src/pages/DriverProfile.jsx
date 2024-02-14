@@ -6,7 +6,7 @@ const DriverProfile = () => {
   return (
     <div className="profile">
       <div className="profileNav">
-        <ProfileNav />
+        <ProfileNav d="driver"/>
       </div>
       <div className="profilesub">
         <ProfileDriver />
