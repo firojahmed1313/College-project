@@ -8,7 +8,7 @@ const DriverProfile = () => {
       <div className="profileNav">
         <ProfileNav />
       </div>
-      <div className="profileBlog">
+      <div className="profilesub">
         <ProfileDriver />
       </div>
     </div>

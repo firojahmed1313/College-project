@@ -1,36 +1,51 @@
 import React, { useState } from "react";
 import axios from "axios";
-const Login = () => {
-  const [name,setname] =useState("");
-  const [password,setpassword] =useState("");
+import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
+import PasswordIcon from '@mui/icons-material/Password';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useNavigate } from "react-router-dom";
 
-  const onSubmit=async (e)=>{
+const Login = () => {
+  const [name, setname] = useState("");
+  const [password, setpassword] = useState("");
+  const [isVisiable, setIsVisiable] = useState(false);
+  const navigator=useNavigate();
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log( name , password);
-    
+    console.log(name, password);
+    navigator('/userProfile')
   }
   return (
     <>
       <div className="formbody">
         <form onSubmit={onSubmit} >
           <h1>LOGIN</h1>
-
-          <input
-            placeholder="Enter Your Email"
-            type="email"
-            name="email"
-            id="email"
-            value={name}
-            onChange={(e)=>setname(e.target.value)}
-          />
-          <input
-            placeholder="Enter Your Password"
-            type="password"
-            name="password"
-            id="password"
-            value={password}
-            onChange={(e)=>setpassword(e.target.value)}
-          />
+          <div className="formiconplusi">
+            <LocalPostOfficeIcon fontSize="large" />
+            <input
+              placeholder="Enter Your Email"
+              type="email"
+              name="email"
+              id="email"
+              value={name}
+              onChange={(e) => setname(e.target.value)}
+            />
+          </div>
+          <div className="formiconplusi">
+            <PasswordIcon fontSize="large" />
+            <input
+              placeholder="Enter Your Password"
+              type={(isVisiable) ? "text" : "password"}
+              name="password"
+              id="password"
+              value={password}
+              onChange={(e) => setpassword(e.target.value)}
+            />
+            <div onClick={() => setIsVisiable(!isVisiable)}>
+              {(isVisiable) ? <VisibilityOffIcon fontSize="large" /> : <VisibilityIcon fontSize="large" />}
+            </div>
+          </div>
           <input type="submit" value="Login" />
         </form>
       </div>

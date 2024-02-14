@@ -8,7 +8,7 @@ const UserProfile = () => {
       <div className="profileNav">
         <ProfileNav />
       </div>
-      <div className="profileBlog">
+      <div className="profilesub">
         <ProfileUser/>
       </div>
     </div>

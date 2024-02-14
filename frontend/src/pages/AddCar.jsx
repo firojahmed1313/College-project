@@ -3,21 +3,25 @@ import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const initialData = {
     name: "",
+    vehicle: "",
+    category: "",
     phone_no: "",
     car_no: "",
-    licence_id:"",
-    depert:"",
-    goingto:"",
-    rent:"",
-    available_seat:"",
+    licence_id: "",
+    password: "",
+    depert: "",
+    goingto: "",
+    rent: "",
+    available_seat: "",
 };
 
 const AddCar = () => {
     const [car, setCar] = useState(initialData);
-
+    const navigation = useNavigate();
     const inputEvent = (e) => {
         const { name, value } = e.target;
         setRegister({ ...register, [name]: value });
@@ -25,7 +29,7 @@ const AddCar = () => {
 
     const onSubmits = async (e) => {
         e.preventDefault();
-        
+
         toast.success("Car Added", {
             position: "top-center",
             autoClose: 5000,
@@ -36,6 +40,8 @@ const AddCar = () => {
             progress: undefined,
             theme: "dark",
         });
+        navigation('/driverProfile');
+
 
     };
 
@@ -55,9 +61,17 @@ const AddCar = () => {
                 theme="dark"
             />
             <div className="formbody">
-                
+
                 <form onSubmit={onSubmits}>
                     <h1>ADD CAR</h1>
+                    <input
+                        placeholder="Enter Your Available Seat"
+                        type="text"
+                        name="available_seat"
+                        id="available_seat"
+                        value={car.available_seat}
+                        onChange={inputEvent}
+                    />
                     <input
                         placeholder="Enter Your Name"
                         type="text"
@@ -67,11 +81,11 @@ const AddCar = () => {
                         onChange={inputEvent}
                     />
                     <input
-                        placeholder="Enter Your Phone No"
+                        placeholder="Enter Your vehicle"
                         type="text"
-                        name="phone_no"
-                        id="phone_no"
-                        value={car.phone_no}
+                        name="vehicle"
+                        id="vehicle"
+                        value={car.vehicle}
                         onChange={inputEvent}
                     />
                     <input
@@ -83,11 +97,43 @@ const AddCar = () => {
                         onChange={inputEvent}
                     />
                     <input
+                        placeholder="Enter Your category"
+                        type="text"
+                        name="category"
+                        id="category"
+                        value={car.category}
+                        onChange={inputEvent}
+                    />
+                    <input
                         placeholder="Enter Your Licence Id"
                         type="text"
                         name="licence_id"
                         id="licence_id"
                         value={car.licence_id}
+                        onChange={inputEvent}
+                    />
+                    <input
+                        placeholder="Enter Your Password"
+                        type="password"
+                        name="password"
+                        id="password"
+                        value={car.password}
+                        onChange={inputEvent}
+                    />
+                    <input
+                        placeholder="Enter Your Phone No"
+                        type="text"
+                        name="phone_no"
+                        id="phone_no"
+                        value={car.phone_no}
+                        onChange={inputEvent}
+                    />
+                    <input
+                        placeholder="Enter Your Rent"
+                        type="text"
+                        name="rent"
+                        id="rent"
+                        value={car.rent}
                         onChange={inputEvent}
                     />
                     <input
@@ -106,26 +152,12 @@ const AddCar = () => {
                         value={car.goingto}
                         onChange={inputEvent}
                     />
-                    <input
-                        placeholder="Enter Your Rent"
-                        type="text"
-                        name="rent"
-                        id="rent"
-                        value={car.rent}
-                        onChange={inputEvent}
-                    />
-                    <input
-                        placeholder="Enter Your Available Seat"
-                        type="text"
-                        name="available_seat"
-                        id="available_seat"
-                        value={car.available_seat}
-                        onChange={inputEvent}
-                    />
                     
-                    
+
+
+
                     <input type="submit" value="Add Car" />
-                    
+
                 </form>
             </div>
         </>
