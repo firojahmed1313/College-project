@@ -28,7 +28,7 @@ const Home = () => {
                     <div className="homeIcon">
                         <DirectionsCarIcon fontSize="large" style={{ margin: "10px 15px" }} />
                         <h3 style={{ margin: "10px 15px" }} >I Want To Drive</h3>
-                        <Link to={"/addcar"} className="navitem">
+                        <Link to={"/registerdriver"} className="navitem">
                             <h3><ArrowForwardIcon /></h3>
                         </Link>
                     </div>

@@ -16,7 +16,7 @@ const ProfileNav = ({d}) => {
                     email
                 </div>
                 <button onClick={() => editBlog} type="submit">
-                    Extra
+                    {d}
                 </button>
             </div>
             <div className="ProfileLink">
