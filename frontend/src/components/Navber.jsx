@@ -12,20 +12,9 @@ const Navber = () => {
         </div>
         <div className="right">
           
-          <Link to={"/driverProfile"} className="navitem">
-            <h3>Driver Profile</h3>
-          </Link>
-          <Link to={"/userProfile"} className="navitem">
-            <h3>User Profile</h3>
-          </Link>
+          
           <Link to={"/register"} className="navitem">
             <h3>Register</h3>
-          </Link>
-          <Link to={"/logindriver"} className="navitem">
-            <h3>Login driver</h3>
-          </Link>
-          <Link to={"/registerdriver"} className="navitem">
-            <h3>Register driver</h3>
           </Link>
           <Link to={"/login"} className="navitem">
             <h3>Login</h3>
