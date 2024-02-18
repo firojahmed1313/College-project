@@ -20,7 +20,7 @@ async function cosoleBalances(addresses) {
 }
 async function main() {
   const Car = await hre.ethers.getContractFactory("CarpoolingSystem");
-  const carDeploy= await Car.deploy();
+  const carDeploy = await Car.deploy();
   await carDeploy.waitForDeployment();
   const [owner, driver1, user1, user2] = await hre.ethers.getSigners();
   console.log(carDeploy.target);
@@ -29,52 +29,52 @@ async function main() {
   console.log(user1.address);
   console.log(user2.address);
 
-  const Caraddincon=await carDeploy.addCar("3","qwe","we","re","ert","123","12456","111111","13","kol","des");
-   await Caraddincon.wait();
+  const Caraddincon = await carDeploy.addCar("3", "qwe", "we", "re", "ert", "123", "12456", "111111", "13", "kol", "des");
+  await Caraddincon.wait();
   //console.log(Caraddincon);
-  console.log(Caraddincon.to,"from",Caraddincon.from);
-  const Caraddincon2=await carDeploy.connect(driver1).addCar("3","qwe","we","re","ert","1234","12456","111111","13","kol","des");
-   await Caraddincon2.wait();
+  console.log(Caraddincon.to, "from", Caraddincon.from);
+  const Caraddincon2 = await carDeploy.connect(driver1).addCar("3", "qwe", "we", "re", "ert", "1234", "12456", "111111", "13", "kol", "des");
+  await Caraddincon2.wait();
   //console.log(Caraddincon);
-  console.log(Caraddincon2.to,"from",Caraddincon2.from);
+  console.log(Caraddincon2.to, "from", Caraddincon2.from);
   //await fundingDeploy.connect(from1).sendMoney("from1", "Very nice chai", amount);
-  const Useraddincon=await carDeploy.connect(user1).addUser("kol","des","1234567");
+  const Useraddincon = await carDeploy.connect(user1).addUser("kol", "des", "1234567");
   await Useraddincon.wait();
-  console.log(Useraddincon.to,"from",Useraddincon.from);
-  const Useraddincon2=await carDeploy.connect(user2).addUser("kol","des","12345");
+  console.log(Useraddincon.to, "from", Useraddincon.from);
+  const Useraddincon2 = await carDeploy.connect(user2).addUser("kol", "des", "12345");
   await Useraddincon2.wait();
-  console.log(Useraddincon2.to,"from",Useraddincon2.from);
-  
-  const userCount=await carDeploy.getUserCount();
+  console.log(Useraddincon2.to, "from", Useraddincon2.from);
+
+  const userCount = await carDeploy.getUserCount();
   //await userCount.wait();
   console.log(userCount);
-  const carCount=await carDeploy.getCarCount();
+  const carCount = await carDeploy.getCarCount();
   //await userCount.wait();
   console.log(carCount);
+
   
-  /*
   const AvailableCarpools=await carDeploy.getAvailableCarpools("123");
   console.log(AvailableCarpools);
   const AvailableCarpoolByDest=await carDeploy.getAvailableCarByDest("koldes");
   console.log(AvailableCarpoolByDest);
-  */
- await carDeploy.setSelected("we");
- const selectCar=await carDeploy.getSelected("we");
- console.log(selectCar);
- 
- 
- const amount = { value: ethers.parseEther("2").toString() };
- const paymenttodriver = await carDeploy.connect(user1).makePayment("123", amount);
- await paymenttodriver.wait();
- console.log(paymenttodriver.to,"from",paymenttodriver.from);
+  
+  await carDeploy.setSelected("we");
+  const selectCar = await carDeploy.getSelected("we");
+  console.log(selectCar);
 
- const addresses = [
-  owner.address,
-  driver1.address,
-  user1.address,
-  user2.address,
-];
-await cosoleBalances(addresses); 
+
+  const amount = { value: ethers.parseEther("2").toString() };
+  const paymenttodriver = await carDeploy.connect(user1).makePayment("123", amount);
+  await paymenttodriver.wait();
+  console.log(paymenttodriver.to, "from", paymenttodriver.from);
+
+  const addresses = [
+    owner.address,
+    driver1.address,
+    user1.address,
+    user2.address,
+  ];
+  await cosoleBalances(addresses);
 
 }
 
