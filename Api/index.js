@@ -3,11 +3,37 @@ import mongoose from "mongoose";
 import userRouter from "./routers/userRouters.js"
 import driverRouter from "./routers/driverRouters.js"
 import { config } from "dotenv";
-
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import path from "path"
 const app = express();
+app.use(express.json());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+app.use(express.urlencoded({ extended: true })); // post from data
+app.use(express.static(path.join(path.resolve(), "pubic"))); // add static file
+app.use(cookieParser())
+
+
 config({
     path: "./config/config.env"
 })
+
+app.use(cors({
+  
+    origin: "*",
+    //origin: "https://5173-firojahmed131-rojblogfb-w8s8zoxujfd.ws-us107.gitpod.io",
+    methods:["GET" ,"POST" , "PUT" , "DELETE"],
+    credentials: true,
+    optionSuccessStatus:200
+  }))
 const PORT = process.env.PORT;
 const DB_URL = process.env.DB_URL;
 

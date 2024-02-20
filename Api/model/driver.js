@@ -5,7 +5,7 @@ const driverSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    license: {
+    licence_id: {
         type: String,
         require: true,
         unique: true,
