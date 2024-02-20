@@ -1,4 +1,5 @@
 import { User } from "../model/user.js";
+import { createToken } from "../utils/tokencookies.js";
 
 
 export const home = (req, res) => {
@@ -48,8 +49,10 @@ export const userLogIn = async (req, res) => {
         });
 
     console.log(userExist);
-    res.status(200).json({
-        success: true,
+    createToken(
         userExist,
-    });
+        res,
+        `Welcome ${userExist.name} and your email is ${userExist.email}`
+    );
+
 }

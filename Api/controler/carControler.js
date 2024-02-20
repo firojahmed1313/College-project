@@ -1,4 +1,5 @@
 import { Driver } from "../model/driver.js"
+import { createToken } from "../utils/tokencookies.js";
 
 export const driverHome = (req, res) => {
     res.send("<h1>Driver<h1>")
@@ -47,8 +48,9 @@ export const driverLogIn = async (req, res) => {
         });
 
     console.log(driverExist);
-    res.status(200).json({
-        success: true,
+    createToken(
         driverExist,
-    });
+        res,
+        `Welcome ${driverExist.name} and your email is ${driverExist.email}`
+    );
 }
