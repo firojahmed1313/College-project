@@ -9,17 +9,20 @@ import GppGoodIcon from '@mui/icons-material/GppGood';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from "react-router-dom";
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+
 
 const initialData = {
   name: "",
   email: "",
+  phone_no:"",
   password: "",
 };
 
 const Register = () => {
   const [register, setRegister] = useState(initialData);
   const [isVisiable, setIsVisiable] = useState(false);
-  const navigator= useNavigate()
+  const navigator = useNavigate()
   const inputEvent = (e) => {
     const { name, value } = e.target;
     setRegister({ ...register, [name]: value });
@@ -86,6 +89,17 @@ const Register = () => {
             />
           </div>
           <div className="formiconplusi">
+            <LocalPhoneIcon fontSize="large" />
+            <input
+              placeholder="Enter Your Phone No"
+              type="text"
+              name="phone_no"
+              id="phone_no"
+              value={register.phone_no}
+              onChange={inputEvent}
+            />
+          </div>
+          <div className="formiconplusi">
             <GppGoodIcon fontSize="large" />
             <input
               placeholder="Enter Your Password"
@@ -103,8 +117,8 @@ const Register = () => {
             <input type="submit" value="Create Account" onClick={onSubmits} />
           }
 
-          <button onClick={()=>navigator('/login')} type="submit">
-            Already registered 
+          <button onClick={() => navigator('/login')} type="submit">
+            Already registered
           </button>
         </form >
       </div >

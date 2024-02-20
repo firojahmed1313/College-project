@@ -12,8 +12,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import PaidIcon from '@mui/icons-material/Paid';
 import Groups2Icon from '@mui/icons-material/Groups2';
-
+import BusinessIcon from '@mui/icons-material/Business';
 const initialData = {
+    owner:"",
     vehicle: "",
     category: "",
     phone_no: "",
@@ -69,6 +70,17 @@ const AddCar = () => {
 
                 <form onSubmit={onSubmits}>
                     <h1>ADD CAR</h1>
+                    <div className="formiconplusi">
+                        <BusinessIcon fontSize="large" />
+                        <input
+                            placeholder="Enter Your Owner Address"
+                            type="text"
+                            name="owner"
+                            id="owner"
+                            value={car.owner}
+                            onChange={inputEvent}
+                        />
+                    </div>
                     <div className="formiconplusi">
                         <Groups2Icon fontSize="large" />
                         <input
