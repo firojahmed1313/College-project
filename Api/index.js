@@ -28,7 +28,7 @@ config({
 
 app.use(cors({
   
-    origin: "*",
+    origin: process.env.FRONTED_URL,
     //origin: "https://5173-firojahmed131-rojblogfb-w8s8zoxujfd.ws-us107.gitpod.io",
     methods:["GET" ,"POST" , "PUT" , "DELETE"],
     credentials: true,
