@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import PasswordIcon from '@mui/icons-material/Password';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -7,33 +8,69 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [isVisiable, setIsVisiable] = useState(false);
   const navigator = useNavigate();
   const burl = import.meta.env.VITE_URL;
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, password);
+    console.log(email, password);
     try {
       const url = `${burl}api/user/logIn`
-      const api = await axios.post(url, { name, password }, {
+      const api = await axios.post(url, { email, password }, {
         headers: {
           "Content-Type": "application/json",
         },
         withCredentials: true,
       })
-      console.log(api);
-      setTimeout(() => {
-        navigator('/userProfile');
-      }, "3000")
+      console.log(api.data);
+      if (api.data.success) {
+        
+        setTimeout(() => {
+          navigator('/userProfile');
+        }, "3000")
+      }
+      toast.success(api.data.massage, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      
     } catch (error) {
       console.warn(error);
+      toast.error(error.response.data.massage, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
 
   }
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="formbody">
         <form onSubmit={onSubmit} >
           <h1>LOGIN</h1>
@@ -44,8 +81,8 @@ const Login = () => {
               type="email"
               name="email"
               id="email"
-              value={name}
-              onChange={(e) => setname(e.target.value)}
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
             />
           </div>
           <div className="formiconplusi">

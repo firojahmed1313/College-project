@@ -39,26 +39,37 @@ const Register = () => {
         },
         withCredentials: true,
       })
-      console.log(api);
+      console.log(api.data);
+      toast.success(api.data.massage, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       setTimeout(()=>{
         navigator('/login');
       },"3000")
     } catch (error) {
       console.warn(error);
+      toast.error(error.response.data.massage, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
     
     
 
-    toast.success(register, {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    
 
   };
 

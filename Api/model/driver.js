@@ -5,18 +5,19 @@ const driverSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    licence_id: {
+    email: {
         type: String,
         require: true,
         unique: true,
     },
-    email: {
-        type: String,
-        require: true,
-    },
     password: {
         type: String,
         require: true,
+    },
+    licence_id: {
+        type: String,
+        require: true,
+        
     },
     createAt: {
         type: Date,

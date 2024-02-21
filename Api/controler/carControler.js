@@ -7,9 +7,9 @@ export const driverHome = (req, res) => {
 
 export const driverRegister = async (req, res) => {
     console.log(req.body);
-    const { name, licence_id,email, password } = req.body;
+    const { name,email, password , licence_id} = req.body;
 
-    const driverExist = await Driver.findOne({ licence_id });
+    const driverExist = await Driver.findOne({ email });
     if (driverExist) {
         return res.status(200).json({
             success: false,
@@ -18,9 +18,9 @@ export const driverRegister = async (req, res) => {
     }
     const driver = await Driver.create({
         name,
-        licence_id,
         email,
         password,
+        licence_id,
     });
     if (driver) {
         return res.status(201).json({
@@ -33,22 +33,25 @@ export const driverRegister = async (req, res) => {
 }
 export const driverLogIn = async (req, res) => {
     console.log(req.body);
-    const { name,licence_id, email, password } = req.body;
+    const { email, password } = req.body;
 
-    const driverExist = await Driver.findOne({ licence_id });
-    if (!driverExist) {
+    const driverExist = await Driver.findOne({ email });
+    
+    
+    console.log(driverExist);
+    if (!driverExist ) {
         return res.status(200).json({
             success: false,
             massage: "User Not exist .....",
         });
     }
-    if (password != driverExist.password)
+    if (password != driverExist.password )
         return res.status(400).json({
             success: false,
             massage: "password or email do not match .....",
         });
 
-    console.log(driverExist);
+    
     createToken(
         driverExist,
         res,

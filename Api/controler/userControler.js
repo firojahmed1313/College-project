@@ -34,9 +34,10 @@ export const userRegister = async (req, res) => {
 }
 export const userLogIn = async (req, res) => {
     console.log(req.body);
-    const { name, email, phone, password } = req.body;
+    const { email,password } = req.body;
 
     const userExist = await User.findOne({ email });
+    console.log(userExist);
     if (!userExist) {
         return res.status(200).json({
             success: false,
@@ -49,7 +50,7 @@ export const userLogIn = async (req, res) => {
             massage: "password or email do not match .....",
         });
 
-    console.log(userExist);
+    
     createToken(
         userExist,
         res,

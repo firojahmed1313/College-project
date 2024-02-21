@@ -21,7 +21,8 @@ const initialData = {
 const RegisterDriver = () => {
   const [register, setRegister] = useState(initialData);
   const [isVisiable, setIsVisiable] = useState(false);
-  const navigator = useNavigate()
+  const navigator = useNavigate();
+  const burl = import.meta.env.VITE_URL;
   const inputEvent = (e) => {
     const { name, value } = e.target;
     setRegister({ ...register, [name]: value });
@@ -29,18 +30,42 @@ const RegisterDriver = () => {
 
   const onSubmits = async (e) => {
     e.preventDefault();
-    navigator('/logindriver');
-
-    toast.success(register, {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    try {
+      const url= `${burl}api/driver/register`
+      const api= await axios.post(url,register,{
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      console.log(api.data);
+      toast.success(api.data.massage, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      setTimeout(()=>{
+        navigator('/logindriver');
+      },"3000")
+    } catch (error) {
+      console.warn(error);
+      toast.error(error.response.data.massage, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+    
 
   };
 
@@ -76,17 +101,7 @@ const RegisterDriver = () => {
               onChange={inputEvent}
             />
           </div>
-          <div className="formiconplusi">
-            <BadgeIcon fontSize="large" />
-            <input
-              placeholder="Enter Your Licence Id"
-              type="text"
-              name="licence_id"
-              id="licence_id"
-              value={register.licence_id}
-              onChange={inputEvent}
-            />
-          </div>
+          
           <div className="formiconplusi">
             <AlternateEmailIcon fontSize="large" />
             <input
@@ -102,15 +117,27 @@ const RegisterDriver = () => {
             <GppGoodIcon fontSize="large" />
             <input
               placeholder="Enter Your Password"
-              type="password"
+              type={(isVisiable) ? "text" : "password"}
               name="password"
               id="password"
               value={register.password}
               onChange={inputEvent}
             />
+            
             <div onClick={() => setIsVisiable(!isVisiable)}>
               {(isVisiable) ? <VisibilityOffIcon fontSize="large" /> : <VisibilityIcon fontSize="large" />}
             </div>
+          </div>
+          <div className="formiconplusi">
+            <BadgeIcon fontSize="large" />
+            <input
+              placeholder="Enter Your Licence Id"
+              type="text"
+              name="licence_id"
+              id="licence_id"
+              value={register.licence_id}
+              onChange={inputEvent}
+            />
           </div>
           {
             <input type="submit" value="Create Account" onClick={onSubmits} />
