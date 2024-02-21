@@ -27,10 +27,27 @@ const Register = () => {
     const { name, value } = e.target;
     setRegister({ ...register, [name]: value });
   };
-
+  const burl = import.meta.env.VITE_URL;
+  console.log(burl);
   const onSubmits = async (e) => {
     e.preventDefault();
-    navigator('/login');
+    try {
+      const url= `${burl}/api/user/register`
+      const api= await axios.post(url,register,{
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      console.log(api);
+      setTimeout(()=>{
+        navigator('/login');
+      },"3000")
+    } catch (error) {
+      console.warn(error);
+    }
+    
+    
 
     toast.success(register, {
       position: "top-center",
@@ -103,7 +120,7 @@ const Register = () => {
             <GppGoodIcon fontSize="large" />
             <input
               placeholder="Enter Your Password"
-              type="password"
+              type={(isVisiable) ? "text" : "password"}
               name="password"
               id="password"
               value={register.password}
