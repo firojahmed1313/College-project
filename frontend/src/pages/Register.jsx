@@ -15,7 +15,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 const initialData = {
   name: "",
   email: "",
-  phone_no:"",
+  phone:"",
   password: "",
 };
 
@@ -32,7 +32,7 @@ const Register = () => {
   const onSubmits = async (e) => {
     e.preventDefault();
     try {
-      const url= `${burl}/api/user/register`
+      const url= `${burl}api/user/register`
       const api= await axios.post(url,register,{
         headers: {
           "Content-Type": "application/json",
@@ -110,9 +110,9 @@ const Register = () => {
             <input
               placeholder="Enter Your Phone No"
               type="text"
-              name="phone_no"
-              id="phone_no"
-              value={register.phone_no}
+              name="phone"
+              id="phone"
+              value={register.phone}
               onChange={inputEvent}
             />
           </div>

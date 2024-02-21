@@ -10,11 +10,27 @@ const Login = () => {
   const [name, setname] = useState("");
   const [password, setpassword] = useState("");
   const [isVisiable, setIsVisiable] = useState(false);
-  const navigator=useNavigate();
+  const navigator = useNavigate();
+  const burl = import.meta.env.VITE_URL;
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(name, password);
-    navigator('/userProfile')
+    try {
+      const url = `${burl}api/user/logIn`
+      const api = await axios.post(url, { name, password }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      console.log(api);
+      setTimeout(() => {
+        navigator('/userProfile');
+      }, "3000")
+    } catch (error) {
+      console.warn(error);
+    }
+
   }
   return (
     <>
