@@ -434,6 +434,33 @@ form>input[type="submit"]:hover {
   color: #f0ebeb;
 }
 
+.paymentProfilecontaner{
+  width: 90%;
+  margin: auto;
+
+}
+.paymentProfilesubContaner{
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 600px) {
   .NavProfile {
     /*border: 2px solid green;*/

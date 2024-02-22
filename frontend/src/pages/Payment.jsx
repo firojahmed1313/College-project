@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
     const [book, setBook] = useState(false);
     const [payment, setPayment] = useState(false);
+    const navigator=useNavigate();
     const onPayment = (e) => {
         setPayment(true);
         console.log("Payment Sucessfull");
     }
     const onBook = (e) => {
-        setBook(true);
         console.log("Booking Sucessfull");
+        navigator("/userProfile");
         
     }
     return (

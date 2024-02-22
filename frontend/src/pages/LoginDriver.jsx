@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import { ToastContainer, toast } from "react-toastify";
@@ -7,13 +7,17 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useNavigate } from "react-router-dom";
 import BadgeIcon from '@mui/icons-material/Badge';
+import context from "../context/Context";
+import Cookies from 'js-cookie'
+
 const LoginDriver = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [isVisiable, setIsVisiable] = useState(false);
   const navigator = useNavigate();
   const burl = import.meta.env.VITE_URL;
-
+  const auth = useContext(context);
+  console.log(auth)
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(email, password);
@@ -27,7 +31,15 @@ const LoginDriver = () => {
       })
       console.log(api.data);
       if (api.data.success) {
-
+        auth.setIsAuth(true);
+        auth.setUser(api.data.user);
+        console.log(api.data.token);
+        Cookies.set("tokenSmartPool", JSON.stringify(api.data.token), {
+          expires: 1,
+          sameSite: "strict",
+          secure: true,
+          path: "/"
+        })
         setTimeout(() => {
           navigator('/driverProfile')
         }, "3000")
