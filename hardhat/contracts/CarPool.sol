@@ -45,10 +45,7 @@ contract CarpoolingSystem {
 
     mapping(string => User[]) internal user_by_phone_no;
 
-    constructor() {
-        driver = payable(msg.sender);
-    }
-
+    
     modifier onlyOwner() {
         require(
             msg.sender == driver,
