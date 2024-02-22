@@ -9,6 +9,7 @@ const ProfileNav = ({ d }) => {
     console.log(d);
     const auth = useContext(context);
     const navigator= useNavigate();
+    console.log(auth);
     const logOut = () => {
         Cookies.remove("tokenSmartPool");
         auth.setIsAuth(false);

@@ -7,8 +7,8 @@ pragma solidity ^0.8.17;
 
 contract CarpoolingSystem {
     address driver;
-    uint256 internal carId;
-    uint256 internal userId;
+    uint256 internal carId = 0;
+    uint256 internal userId = 0;
     string internal setSelectedDriver;
 
 
@@ -171,7 +171,7 @@ contract CarpoolingSystem {
     function getSelected(string memory _vehicleNo)
         public
         view
-        returns (string memory)
+        returns (Car memory)
     {
         string memory selectedDriver = setSelectedDriver;
         require(
@@ -179,7 +179,7 @@ contract CarpoolingSystem {
                 keccak256(abi.encodePacked(_vehicleNo)),
             "Only CHOOSE driver can perform this action"
         );
-        return setSelectedDriver;
+        return carpools[setSelectedDriver];
     }
 
     function makePayment(string memory _vehicleNo) public payable {
@@ -189,7 +189,7 @@ contract CarpoolingSystem {
 
         require(msg.value >= car.rent, "Insufficient funds to make payment");
 
-        car.driver.transfer(msg.value);
+        car.carOwner.transfer(msg.value);
     }
 
     
