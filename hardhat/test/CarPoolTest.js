@@ -228,7 +228,7 @@ describe("CarpoolingSystem", function () {
             expect(selectedDriver.vehicleNo).to.equal("ABC123");
         });
     });
-    /*describe("Making payment", function () {
+    describe("Making payment", function () {
         it("Should transfer funds to the car owner", async function () {
             // Add a car
             await carpoolingSystem.addCar(
@@ -248,7 +248,7 @@ describe("CarpoolingSystem", function () {
             // Make payment
             const ownerBalanceBefore = await ethers.provider.getBalance(user1.address);
                 console.log(ethers.formatEther(ownerBalanceBefore));
-            const paymenttodriver = await carpoolingSystem.connect(user1).makePayment("ABC123", { value: 100 });
+            const paymenttodriver = await carpoolingSystem.connect(user1).makePayment("ABC123", { value: ethers.parseEther("2.5").toString() });
             await paymenttodriver.wait();
             console.log("User1 address:", user1.address); // Log user1 address to ensure it's defined
             console.log("owner address:", owner.address); // Log user1 address to ensure it's defined
@@ -260,10 +260,10 @@ describe("CarpoolingSystem", function () {
             const ownerBalanceAfter = await ethers.provider.getBalance(user1.address);
             console.log(ethers.formatEther(ownerBalanceAfter));
             const balanceDifference = ethers.formatEther(ownerBalanceBefore)-ethers.formatEther(ownerBalanceAfter)
-            expect(balanceDifference).to.equal(ethers.formatEther(100)); // 100 wei rent for the car
+            expect(balanceDifference).to.be.within(2, 3); // 100 wei rent for the car
 
         });
-    });*/
+    });
 
 
 });
