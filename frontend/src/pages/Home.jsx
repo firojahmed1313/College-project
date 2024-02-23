@@ -7,6 +7,7 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
 // DEPERT FROM       GOING TO 
 import HomeImage from "../assets/carHome.jpg"
+import Extra from "../components/Extra";
 
 const Home = () => {
     const onDrive = () => {
@@ -42,7 +43,7 @@ const Home = () => {
                 </div>
             </div>
 
-
+            <Extra/>
 
         </>
     );
