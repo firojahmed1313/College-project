@@ -12,8 +12,6 @@ router.post("/api/user/logIn", userLogIn);
 router.get("/user/logIn", (req, res) => {
     res.render("logIn.ejs");
 });
-
 router.get("/api/user/myProfile",isSignIn, getMyProfile);
-
 
 export default router

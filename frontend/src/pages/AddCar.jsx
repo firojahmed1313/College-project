@@ -30,7 +30,7 @@ const AddCar = () => {
     const navigation = useNavigate();
     const inputEvent = (e) => {
         const { name, value } = e.target;
-        setRegister({ ...register, [name]: value });
+        setCar({ ...car, [name]: value });
     };
 
     const onSubmits = async (e) => {
@@ -46,12 +46,13 @@ const AddCar = () => {
             progress: undefined,
             theme: "dark",
         });
+        console.log(car);
         navigation('/driverProfile');
 
 
     };
 
-    console.log(car);
+    
     return (
         <>
             <ToastContainer

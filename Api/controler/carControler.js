@@ -58,3 +58,12 @@ export const driverLogIn = async (req, res) => {
         `Welcome ${driverExist.name} and your email is ${driverExist.email}`
     );
 }
+
+export const getDriverProfile=(req,res)=>{
+    console.log(req.user);
+    res.status(200).json({
+        success: true,
+        user: req.user,
+        
+    })
+}
