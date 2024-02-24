@@ -11,9 +11,11 @@ const State = (props) => {
       contract: null,
     });
     const [account, setAccount] = useState("None");
+    const [depert, setDepert] = useState();
+    const [goingto, setGoingto] = useState();
     
   return (
-    <Context.Provider value={{isAuth,setIsAuth ,user,setUser,book,setBook,state,setState,account,setAccount}}>
+    <Context.Provider value={{isAuth,setIsAuth ,user,setUser,book,setBook,state,setState,account,setAccount,depert, setDepert,goingto, setGoingto}}>
         {props.children}
     </Context.Provider>
   )

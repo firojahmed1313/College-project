@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import context from '../context/Context';
 
 const Payment = () => {
     const [book, setBook] = useState(false);
     const [payment, setPayment] = useState(false);
     const navigator=useNavigate();
+    const auth = useContext(context);
+    console.log(auth);
     const onPayment = (e) => {
         setPayment(true);
         console.log("Payment Sucessfull");

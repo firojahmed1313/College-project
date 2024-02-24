@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,8 +8,10 @@ import TagFacesIcon from '@mui/icons-material/TagFaces';
 // DEPERT FROM       GOING TO 
 import HomeImage from "../assets/carHome.jpg"
 import Extra from "../components/Extra";
-
+import context from "../context/Context";
 const Home = () => {
+    const auth = useContext(context);
+    console.log(auth);
     const onDrive = () => {
 
     }
@@ -43,7 +45,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <Extra/>
+           
 
         </>
     );

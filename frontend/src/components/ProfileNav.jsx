@@ -13,6 +13,9 @@ const ProfileNav = ({ d }) => {
     const logOut = () => {
         Cookies.remove("tokenSmartPool");
         auth.setIsAuth(false);
+        auth.setUser("");
+        auth.setDepert();
+        auth.setGoingto();
         toast.success("Logout Sucessfull", {
             position: "top-center",
             autoClose: 5000,

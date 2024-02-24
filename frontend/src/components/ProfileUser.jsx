@@ -6,7 +6,7 @@ const ProfileUser = (props) => {
     setPayment(true);
     console.log("Payment Sucessfull");
   }
-  console.log(props.user);
+  //console.log(props.user);
   return (
     <>
       <div className='paymentProfilecontaner'>

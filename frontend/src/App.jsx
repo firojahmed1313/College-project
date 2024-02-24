@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
@@ -12,8 +12,17 @@ import DriverProfile from "./pages/DriverProfile";
 import UserProfile from "./pages/UserProfile";
 import RegisterDriver from "./pages/RegisterDriver";
 import LoginDriver from "./pages/LoginDriver";
+import context from "./context/Context";
+import Cookies from 'js-cookie'
+
 const App = () => {
+  const auth = useContext(context);
+  const isCookies= Cookies.get("tokenSmartPool");
+  if(isCookies){
+    auth.setIsAuth(true);
+  }
   return (
+
     <>
       <Navber/>
       <Routes>

@@ -13,13 +13,13 @@ const Navber = () => {
         <div className="right">
           
           
-          <Link to={"/register"} className="navitem">
+          {/*<Link to={"/register"} className="navitem">
             <h3>Register</h3>
           </Link>
           <Link to={"/login"} className="navitem">
             <h3>Login</h3>
           </Link>
-          <div className="navitem"><h3>Logout</h3></div>
+          <div className="navitem"><h3>Logout</h3></div>*/}
         </div>
       </div>
     </>

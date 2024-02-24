@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import locationmap from '../assets/locationMap.png'; // with import
 import { useNavigate } from 'react-router-dom';
-
-
+import context from '../context/Context';
+import axios from 'axios';
+import Cookies
+ from 'js-cookie';
 const Map = () => {
+    const [user, setUser] = useState();
     const navigate = useNavigate();
+    const auth = useContext(context);
+    console.log(auth);
+    
     const onDetails = (e) => {
 
         console.log("Sucessfull");
@@ -49,7 +55,7 @@ const Map = () => {
 
                 </div>
                 <div className='map'>
-                    <img src={locationmap} alt='map' className='mapimg'/>
+                    <img src={locationmap} alt='map' className='mapimg' />
                 </div>
             </div>
 
