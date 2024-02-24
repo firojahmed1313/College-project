@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AllRentCarDetails from './AllRentCarDetails';
 
 const ProfileUser = (props) => {
   const [payment, setPayment] = useState(false);
@@ -29,6 +30,9 @@ const ProfileUser = (props) => {
             }
           </div>
         </div>
+      </div>
+      <div className='allrentCar'>
+        <AllRentCarDetails />
       </div>
     </>
   )

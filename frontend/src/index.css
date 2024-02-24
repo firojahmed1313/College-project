@@ -437,7 +437,8 @@ form>input[type="submit"]:hover {
 .paymentProfilecontaner{
   width: 90%;
   margin: auto;
-
+  border: 2px solid green;
+  margin-bottom: 20px;
 }
 .paymentProfilesubContaner{
   width: fit-content;
@@ -448,6 +449,30 @@ form>input[type="submit"]:hover {
   
 }
 
+.allrentCar{
+  border: 2px solid red;
+  width: 90%;
+  margin: auto;
+  height: 30vh;
+  margin-bottom: 20px;
+}
+.ProfileDriver{
+  border: 2px solid red;
+  height: fit-content;
+  
+}
+
+.booked{
+  border: 2px solid blue;
+  height: 30vh;
+  margin: 20px;
+}
+
+.allCar{
+  border: 2px solid green;
+  height: 50vh;
+  margin: 20px;
+}
 
 
 
