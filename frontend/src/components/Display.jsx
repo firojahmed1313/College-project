@@ -21,7 +21,7 @@ const Display = async() => {
                 const data = await contract.getCarCount();
                 const data2 = await contract.getUserCount();
                 //const data3 = await contract.getSelected("re");
-                const data4 = await contract.getAvailableCarByDest("koldes");
+                /*const data4 = await contract.getAvailableCarByDest("koldes");
                 const data5 = await contract.getAvailableCarBylicenceId("abc12345");
                 const data6 = await contract.getAvailableCarpools("WB123");
                 const data7 = await contract.getAvailableUser("1234567");

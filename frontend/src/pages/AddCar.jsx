@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import context from "../context/Context";
 import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
 import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
@@ -14,7 +15,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import Groups2Icon from '@mui/icons-material/Groups2';
 import BusinessIcon from '@mui/icons-material/Business';
 const initialData = {
-    owner:"",
+    owner: "",
     vehicle: "",
     category: "",
     phone_no: "",
@@ -28,6 +29,11 @@ const initialData = {
 const AddCar = () => {
     const [car, setCar] = useState(initialData);
     const navigation = useNavigate();
+    const auth = useContext(context);
+    const { contract } = auth.state;
+    console.log(contract);
+    console.log(auth.user);
+
     const inputEvent = (e) => {
         const { name, value } = e.target;
         setCar({ ...car, [name]: value });
@@ -35,24 +41,41 @@ const AddCar = () => {
 
     const onSubmits = async (e) => {
         e.preventDefault();
-
-        toast.success("Car Added", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
         console.log(car);
-        navigation('/driverProfile');
+
+        try {
+
+            //const data8 = await contract.addCar(car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, car.licence_id, car.phone_no, car.rent, car.depert, car.goingto);
+            const data8 = await contract.addCar("0x6501Baf726FA584f163C68379546fE3f059EA014", "2", "111", "Tata Nano", "WB123", "low","789654", "789456123", "20", "KOL", "KAL");
+            await data8.wait();
+            console.log(data8);
+            toast.success("Car Added", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+            navigation('/driverProfile');
+        } catch (error) {
+            console.warn(error);
+        }
+
+
+
+
+
+
+
+        //navigation('/driverProfile');
 
 
     };
 
-    
+
     return (
         <>
             <ToastContainer
