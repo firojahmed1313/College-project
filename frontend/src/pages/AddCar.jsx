@@ -26,6 +26,7 @@ const initialData = {
     available_seat: "",
 };
 
+
 const AddCar = () => {
     const [car, setCar] = useState(initialData);
     const navigation = useNavigate();
@@ -42,27 +43,33 @@ const AddCar = () => {
     const onSubmits = async (e) => {
         e.preventDefault();
         console.log(car);
-
-        try {
-
-            //const data8 = await contract.addCar(car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, car.licence_id, car.phone_no, car.rent, car.depert, car.goingto);
-            const data8 = await contract.addCar("0x6501Baf726FA584f163C68379546fE3f059EA014", "2", "111", "Tata Nano", "WB123", "low","789654", "789456123", "20", "KOL", "KAL");
-            await data8.wait();
-            console.log(data8);
-            toast.success("Car Added", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-            navigation('/driverProfile');
-        } catch (error) {
-            console.warn(error);
+        /*const initialDataforaddCar = {
+            car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, car.licence_id, car.phone_no, car.rent, car.depert, car.goingto   
+        };*/
+        const addCarFunction=async()=>{
+            try {
+                console.log(car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, auth.user.licence_id, car.phone_no, car.rent, car.depert, car.goingto)
+                //const data8 = await contract.addCar(car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, car.licence_id, car.phone_no, car.rent, car.depert, car.goingto);
+                const data8 = await contract.addCar("0x6501Baf726FA584f163C68379546fE3f059EA014", "2", "111", "Tata Nano", "WB124", "medium","789654", "789456123", "20", "KOL", "KAL");
+                await data8.wait();
+                console.log(data8);
+                toast.success("Car Added", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+                navigation('/driverProfile');
+            } catch (error) {
+                console.warn(error);
+            }
         }
+        addCarFunction();
+        
 
 
 

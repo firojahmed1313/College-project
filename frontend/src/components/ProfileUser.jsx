@@ -7,6 +7,7 @@ const ProfileUser = (props) => {
     setPayment(true);
     console.log("Payment Sucessfull");
   }
+  
   //console.log(props.user);
   return (
     <>

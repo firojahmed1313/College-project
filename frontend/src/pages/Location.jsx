@@ -8,12 +8,23 @@ const Location = () => {
     const auth = useContext(context);
     const navigate = useNavigate();
     const onSubmits = async (e) => {
-        
+
         e.preventDefault();
         console.log(auth.depert, auth.goingto);
 
-        navigate('/mapDetails' );
-        
+        navigate('/mapDetails');
+        useEffect(() => {
+            const carCount = async () => {
+
+                const data4 = await contract.getAvailableCarByDest("KOLKAL");
+                console.log(data4);
+
+            }
+
+            carCount();
+
+        }, [])
+
     }
     return (
         <>
@@ -39,7 +50,7 @@ const Location = () => {
                         name="depert"
                         id="depert"
                         value={auth.depert}
-                        onChange={(e)=>auth.setDepert(e.target.value)}
+                        onChange={(e) => auth.setDepert(e.target.value)}
                     />
                     <input
                         placeholder="GOING TO"

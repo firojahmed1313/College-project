@@ -1,8 +1,9 @@
 import React from 'react'
 
-const AllCarDetails = () => {
+const AllCarDetails = ({cardetails}) => {
+  console.log(cardetails);
   return (
-    <div>AllCarDetails</div>
+    <div>AllCarDetails :{cardetails[0]}</div>
   )
 }
 
