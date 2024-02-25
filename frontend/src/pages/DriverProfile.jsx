@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 import Display from '../components/Display'
 const DriverProfile = () => {
   const auth = useContext(context);
-  const [carDetails,setCarDetails] = useState()
+  const [carDetails, setCarDetails] = useState()
   console.log(auth);
 
   const { contract } = auth.state;
@@ -22,25 +22,30 @@ const DriverProfile = () => {
       console.log(data2);
       const data4 = await contract.getAvailableCarByDest("KOLKAL");
       console.log(data4);*/
-      const data5 = await contract.getAvailableCarBylicenceId("789654");
-      console.log(data5[0][0]);
-      setCarDetails(data5);
+      try {
+        const data5 = await contract.getAvailableCarBylicenceId("789654");
+        console.log(data5[0][0]);
+        setCarDetails(data5);
+      } catch (error) {
+        console.warn(error);
+      }
+
       //const data6 = await contract.getAvailableCarpools("WB124");
       //console.log(data6);
     }
 
     carCount();
-  
+
   }, [auth])
-  
+
   useEffect(() => {
 
     const getProfile = async () => {
 
 
       try {
-        
-        
+
+
         const url = `${burl}api/driver/myProfile`
         const api = await axios.get(url, {
           headers: {

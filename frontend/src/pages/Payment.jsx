@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import context from '../context/Context';
 
 const Payment = () => {
-    const [book, setBook] = useState(false);
+    
     const [payment, setPayment] = useState(false);
     const navigator=useNavigate();
     const auth = useContext(context);
@@ -12,11 +12,7 @@ const Payment = () => {
         setPayment(true);
         console.log("Payment Sucessfull");
     }
-    const onBook = (e) => {
-        console.log("Booking Sucessfull");
-        navigator("/userProfile");
-        
-    }
+   
     return (
         <>
             <div className='mapContener'>

@@ -1,29 +1,38 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import context from "../context/Context";
 // DEPERT FROM       GOING TO 
 const Location = () => {
     const auth = useContext(context);
     const navigate = useNavigate();
+    const { contract } = auth.state;
+    /* useEffect(() => {
+         const carCount = async () => {
+ 
+             const data4 = await contract.getAvailableCarByDest("KOLKAL");
+             console.log(data4);
+ 
+         }
+ 
+         carCount();
+ 
+     }, [])*/
     const onSubmits = async (e) => {
 
         e.preventDefault();
         console.log(auth.depert, auth.goingto);
 
-        navigate('/mapDetails');
-        useEffect(() => {
-            const carCount = async () => {
 
-                const data4 = await contract.getAvailableCarByDest("KOLKAL");
-                console.log(data4);
 
-            }
+        const data4 = await contract.getAvailableCarByDest("KOLKAL");
+        console.log(data4);
+        auth.setAllDriver(data4);
+        if(data4){
+            navigate("/mapDetails")
+        }
 
-            carCount();
-
-        }, [])
 
     }
     return (
@@ -49,7 +58,7 @@ const Location = () => {
                         type="text"
                         name="depert"
                         id="depert"
-                        value={auth.depert}
+                        value={auth.depert || ''}
                         onChange={(e) => auth.setDepert(e.target.value)}
                     />
                     <input
@@ -57,7 +66,7 @@ const Location = () => {
                         type="text"
                         name="goingto"
                         id="goingto"
-                        value={auth.goingto}
+                        value={auth.goingto || ''}
                         onChange={(e) => auth.setGoingto(e.target.value)}
                     />
                     <input type="submit" value="Find Car" />

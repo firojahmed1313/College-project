@@ -15,13 +15,19 @@ import LoginDriver from "./pages/LoginDriver";
 import context from "./context/Context";
 import Cookies from 'js-cookie'
 import abi from "./blokchain/contact/carPool.json"
-import {ethers} from "ethers"
+import { ethers } from "ethers"
 const App = () => {
   const auth = useContext(context);
-  const isCookies = Cookies.get("tokenSmartPool");
-  if (isCookies) {
-    auth.setIsAuth(true);
-  }
+  useEffect(() => {
+    const isCookies = Cookies.get("tokenSmartPool");
+    if (isCookies) {
+      auth.setIsAuth(true);
+    }
+
+
+  }, [])
+
+
   useEffect(() => {
     const connectWallet = async () => {
       const contractAddress = "0xf3032DfB35D0a88FF9e9a03a5593Ffe26ED1c94d";
