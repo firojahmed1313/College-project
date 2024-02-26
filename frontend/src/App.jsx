@@ -5,7 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navber from "./components/Navber";
 import AddCar from "./pages/AddCar";
-import MapDetails from "./pages/Map";
+import Map from "./pages/Map";
 import Payment from "./pages/Payment";
 import Location from "./pages/Location";
 import DriverProfile from "./pages/DriverProfile";
@@ -83,7 +83,7 @@ const App = () => {
         <Route path="/registerdriver" element={<RegisterDriver />} />
         <Route path="/logindriver" element={<LoginDriver />} />
         <Route path="/addcar" element={<AddCar />} />
-        <Route path="/mapDetails" element={<MapDetails />} />
+        <Route path="/mapDetails" element={<Map />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/location" element={<Location />} />
         <Route path="/driverProfile" element={<DriverProfile />} />

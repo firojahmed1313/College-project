@@ -449,12 +449,17 @@ form>input[type="submit"]:hover {
   border: 2px solid green;
   margin-bottom: 20px;
 }
+.paymentProfilecontaner >H2{
+  text-align: center;
+  color: blue;
+}
 .paymentProfilesubContaner{
   width: fit-content;
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 10px 30px;
+  padding: 10px 10px;
+  justify-content: left;
   
 }
 

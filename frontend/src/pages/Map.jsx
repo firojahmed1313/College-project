@@ -3,29 +3,26 @@ import locationmap from '../assets/locationMap.png'; // with import
 import { useNavigate } from 'react-router-dom';
 import context from '../context/Context';
 import axios from 'axios';
-import Cookies
-    from 'js-cookie';
+import Cookies from 'js-cookie';
 const Map = () => {
-    const [jbook, setjBook] = useState(false);
-    const [driver, setdriver] = useState(false);
     const navigate = useNavigate();
     const auth = useContext(context);
     console.log(auth);
     const { allDriver } = auth;
-    const onBook = (driver) => {
-        
+    const onBookfun = (dd) => {
         console.log("Booking Sucessfull");
-        console.log(driver);
-        //setjBook(true);
-        setdriver(driver);
+        auth.setBook(dd);
+        if (dd) {
+            
+            navigate("/userProfile")
+        }
         //navigate("/userProfile");
 
     }
     useEffect(() => {
-        auth.setBook(driver);
-    
-    
-      }, [])
+
+        //auth.setBook(driver);
+    }, [])
     return (
         <>
 
@@ -49,13 +46,11 @@ const Map = () => {
                                     <h5 className="carData"><span className="carDataSpan" >Rent : </span> {driver[10].toString()}</h5>
                                     <h5 className="carData"><span className="carDataSpan" >From : </span> {driver[11]}</h5>
                                     <h5 className="carData"><span className="carDataSpan" >Dest : </span> {driver[12]}</h5>
-                                    {(jbook) ? <button type="submit" onClick={onBook(driver)} className='bookedButton'>
-                                        Booked
-                                    </button> :
-                                        <button onClick={onBook(driver)} type="submit">
-                                            Book
-                                        </button>
-                                    }
+
+                                    <button onClick={()=>onBookfun(driver)} type="submit">
+                                        Book
+                                    </button>
+
                                 </div>
 
                             )

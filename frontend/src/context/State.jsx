@@ -4,7 +4,7 @@ import Context from './Context'
 const State = (props) => {
     const [isAuth,setIsAuth] = useState(false)
     const [user,setUser] = useState("")
-    const [book,setBook] = useState([])
+    const [book,setBook] = useState("")
     const [state, setState] = useState({
       provider: null,
       signer: null,

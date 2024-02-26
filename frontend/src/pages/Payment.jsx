@@ -9,7 +9,7 @@ const Payment = () => {
     const auth = useContext(context);
     console.log(auth);
     const onPayment = (e) => {
-        setPayment(true);
+        
         console.log("Payment Sucessfull");
     }
    
