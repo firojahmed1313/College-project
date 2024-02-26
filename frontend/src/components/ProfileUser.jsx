@@ -5,12 +5,13 @@ import { ethers } from 'ethers';
 import { ToastContainer, toast } from "react-toastify";
 
 
-const ProfileUser = (props) => {
+const ProfileUser = ({ car }) => {
   const auth = useContext(context);
   const { book } = auth;
   const [payment, setPayment] = useState(false);
   const { contract } = auth.state;
-  console.log(contract);
+  //console.log(contract);
+
   /*
   useEffect(() => {
     const getUsercount = async () => {
@@ -25,6 +26,7 @@ const ProfileUser = (props) => {
     getUsercount();
 
   }, [])*/
+
 
 
 
@@ -109,7 +111,7 @@ const ProfileUser = (props) => {
         }
       </div>
       <div className='allrentCar'>
-        <AllRentCarDetails />
+        <AllRentCarDetails carDetails={car} />
       </div>
     </>
   )

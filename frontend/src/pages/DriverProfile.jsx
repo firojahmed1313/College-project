@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 import Display from '../components/Display'
 const DriverProfile = () => {
   const auth = useContext(context);
-  const [carDetails, setCarDetails] = useState()
+  const [carDetails, setCarDetails] = useState("")
   console.log(auth);
 
   const { contract } = auth.state;
