@@ -175,7 +175,7 @@ form>input[type="submit"]:hover {
   background-color: #c4342a;
 }
 
-.formiconplusi{
+.formiconplusi {
   border: 1px solid rgba(70, 70, 70, 0.5);
   display: flex;
   align-items: center;
@@ -183,6 +183,7 @@ form>input[type="submit"]:hover {
   padding: 2px 5px;
   margin-bottom: 30px;
 }
+
 /* home blog*/
 
 .homeBlog {
@@ -302,10 +303,12 @@ form>input[type="submit"]:hover {
   border-radius: 10px;
   height: fit-content;
 }
-.maph2{
+
+.maph2 {
   text-align: center;
   color: blue;
 }
+
 .mapsubContener {
   /*border: 2px solid blue;*/
   margin: 10px 20px;
@@ -361,11 +364,12 @@ form>input[type="submit"]:hover {
 }
 
 .profilesub {
-  border: 2px solid green ;
+
   width: 60%;
   min-height: 90vh;
   position: absolute;
   left: 30%;
+  margin-bottom: 30px;
 
 }
 
@@ -443,87 +447,129 @@ form>input[type="submit"]:hover {
   color: #f0ebeb;
 }
 
-.paymentProfilecontaner{
+.paymentProfilecontaner {
   width: 90%;
   margin: auto;
-  border: 2px solid green;
+  /*border: 2px solid green;*/
   margin-bottom: 20px;
+  border-radius: 26px;
+  background: linear-gradient(315deg, #d8d3d3, #fffafa);
+  box-shadow: -13px -13px 45px #c2bebe,
+    13px 13px 45px #ffffff;
+    padding-top: 3px;
 }
-.paymentProfilecontaner >H2{
+
+.paymentProfilecontaner>H2 {
   text-align: center;
   color: blue;
 }
-.paymentProfilesubContaner{
+
+.paymentProfilesubContaner {
   width: fit-content;
   margin: auto;
   display: flex;
   flex-direction: column;
   padding: 10px 10px;
   justify-content: left;
-  
+
 }
 
-.allrentCar{
-  border: 2px solid red;
+.allrentCar {
+  /*border: 2px solid red;*/
   width: 90%;
   margin: auto;
   height: fit-content;
   margin-bottom: 20px;
   border-radius: 10px;
+  border-radius: 26px;
+  background: linear-gradient(315deg, #d8d3d3, #fffafa);
+  box-shadow: -13px -13px 45px #c2bebe,
+    13px 13px 45px #ffffff;
+    padding-top: 3px;
+    padding-top: 3px;
 }
-.allrentCar >h2{
+
+.allrentCar>h2 {
   text-align: center;
   color: blue;
 }
 
-.ProfileDriver{
-  border: 2px solid red;
+.ProfileDriver {
+  /*border: 2px solid red;*/
   height: fit-content;
-  
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 21px;
+  background-color: #cbf7f7;
+  box-shadow: -10px 10px 10px rgba(0, 3, 7, 0.25);
+  padding-top: 15px;
+  padding-bottom: 15px;
+
 }
 
-.booked{
-  border: 2px solid blue;
+.booked {
+  /*border: 2px solid blue;*/
   height: 30vh;
   margin: 20px;
+  margin-top: 30px;
+  border-radius: 26px;
+  background: linear-gradient(315deg, #d8d3d3, #fffafa);
+  box-shadow: -13px -13px 50px #c2bebe,
+    13px 13px 45px #ffffff;
+  padding-top: 3px;
 }
 
-.allCar{
-  border: 2px solid green;
+.booked>h2 {
+  color: blue;
+  text-align: center;
+}
+
+.allCar {
+  /*border: 2px solid green;*/
   margin: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: normal;
+  margin-bottom: 30px;
+  border-radius: 26px;
+  background: linear-gradient(315deg, #d8d3d3, #fffafa);
+  box-shadow: -13px -13px 45px #c2bebe,
+    13px 13px 45px #ffffff;
 }
 
-.allCar>h2{
-  
+.allCar>h2 {
+
   text-align: center;
   color: blue;
 }
-.AllCarDetails{
-  border: 2px solid red;
+
+.AllCarDetails {
+  /*border: 2px solid red;*/
   display: flex;
   flex-wrap: wrap;
- width: 90%;
+  width: 90%;
   margin: auto;
   margin-bottom: 10px;
   margin-top: 10px;
   border-radius: 10px;
   padding: 10px 0px;
+  border-radius: 32px;
+  background: #f0eaea;
+  box-shadow: inset -23px -23px 45px #ccc7c7,
+    inset 23px 23px 45px #ffffff;
 }
 
-.carData{
+.carData {
   padding: 0px 5px;
   margin: 10px 15px;
   font-size: medium;
 }
 
-.carDataSpan{
+.carDataSpan {
   color: blue;
-  
+
 }
 
 
