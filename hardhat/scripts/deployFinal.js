@@ -32,12 +32,30 @@ async function main() {
         user1.address,
         user2.address,
     ];
-    await cosoleBalances(addresses);
-    const Caraddincon = await carDeploy.connect(driver1).addCar(owner.address, "3", "qwe", "we", "re", "ert", "123", "111111", "13", "kol", "des");
+
+    //await cosoleBalances(addresses);
+
+    const carData={
+        "carOwner": owner.address,
+        "num_of_seat": "2",
+        "name":"123",
+        "vehicle":"qwe",
+        "vehicleNo":"123",
+        "category":"qwe",
+        "licence_id":"12456",
+        "phoneNumber":"1235465789",
+        "rent":"12",
+        'from':"kol",
+        'dest':"des"
+    }
+
+    const Caraddincon = await carDeploy.connect(driver1).addCar(carData.carOwner, carData.num_of_seat, carData.name, carData.vehicle, carData.vehicleNo, carData.category, carData.licence_id, carData.phoneNumber, carData.rent, carData.from, carData.dest);
     await Caraddincon.wait();
     //console.log(Caraddincon);
     console.log(Caraddincon.to, "from", Caraddincon.from);
-    const Caraddincon2 = await carDeploy.connect(driver2).addCar(owner.address, "3", "qwe", "we", "rer", "ert", "1234", "111111", "13", "kol", "des");
+    const AvailableCarpoolByDest = await carDeploy.getAvailableCarByDest("koldes");
+    console.log(AvailableCarpoolByDest);
+    /*const Caraddincon2 = await carDeploy.connect(driver2).addCar(owner.address, "3", "qwe", "we", "rer", "ert", "1234", "111111", "13", "kol", "des");
     await Caraddincon2.wait();
     //console.log(Caraddincon);
     console.log(Caraddincon2.to, "from", Caraddincon2.from);
@@ -68,10 +86,10 @@ async function main() {
     const userBookedCar = await carDeploy.connect(user1).getAvailableUser("12345");
     console.log(userBookedCar);
     const selectCar = await carDeploy.getSelected("rer");
-    console.log(selectCar);
+    console.log(selectCar);*/
 
 
-    await cosoleBalances(addresses);
+    //await cosoleBalances(addresses);
 
 }
 

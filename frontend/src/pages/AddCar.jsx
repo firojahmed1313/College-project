@@ -43,33 +43,49 @@ const AddCar = () => {
     const onSubmits = async (e) => {
         e.preventDefault();
         console.log(car);
-        /*const initialDataforaddCar = {
-            car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, car.licence_id, car.phone_no, car.rent, car.depert, car.goingto   
-        };*/
-        const addCarFunction=async()=>{
+        const carData = {
+            "carOwner": car.owner,
+            "num_of_seat": car.available_seat,
+            "name": auth.user.name,
+            "vehicle": car.vehicle,
+            "vehicleNo": car.car_no,
+            "category": car.category,
+            "licence_id": auth.user.licence_id,
+            "phoneNumber": car.phone_no,
+            "rent": car.rent,
+            'from': car.depert,
+            'dest': car.goingto
+        }
+        const addCarFunction = async () => {
             try {
-                console.log(car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, auth.user.licence_id, car.phone_no, car.rent, car.depert, car.goingto)
-                //const data8 = await contract.addCar(car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, car.licence_id, car.phone_no, car.rent, car.depert, car.goingto);
-                const data8 = await contract.addCar("0x6501Baf726FA584f163C68379546fE3f059EA014", "2", "111", "Tata Nano", "WB124", "medium","789654", "789456123", "20", "KOL", "KAL");
+                console.log(carData);
+                //console.log(car.owner, car.available_seat, auth.user.name, car.vehicle, car.car_no, car.category, auth.user.licence_id, car.phone_no, car.rent, car.depert, car.goingto)
+                const data8 = await contract.addCar(carData.carOwner, carData.num_of_seat, carData.name, carData.vehicle, carData.vehicleNo, carData.category, carData.licence_id, carData.phoneNumber, carData.rent, carData.from, carData.dest);
+                //const data8 = await contract.addCar("0x6501Baf726FA584f163C68379546fE3f059EA014", "2", "111", "Tata Nano", "WB124", "medium","789654", "789456123", "20", "KOL", "KAL");
                 await data8.wait();
-                console.log(data8);
-                toast.success("Car Added", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-                navigation('/driverProfile');
+                if (data8) {
+                    
+                    console.log(data8);
+                    toast.success("Car Added", {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    });
+                    navigation('/driverProfile');
+                } else {
+                    throw new Error("Contract addCar function returned undefined");
+                }
             } catch (error) {
                 console.warn(error);
             }
         }
         addCarFunction();
-        
+
 
 
 
