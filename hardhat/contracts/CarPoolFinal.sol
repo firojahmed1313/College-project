@@ -3,7 +3,7 @@
 pragma solidity ^0.8.17;
 
 //add,3,qwe,we,re,ert,123,111111,13,kol,des
-//kol,des,1234567,re
+//kol,des,1234567,re,123
 // add user with payment and setSelected*
 //GET CHANGE*
 contract CarpoolingSystemFinal {
@@ -45,7 +45,7 @@ contract CarpoolingSystemFinal {
     }
 
     mapping(string => User[]) internal user_by_phone_no;
-    mapping(string => User) user_by_vehicleNo;
+    mapping(string => User) user_by_licence_id;
 
     constructor() {
         driver = payable(msg.sender);
@@ -158,7 +158,7 @@ contract CarpoolingSystemFinal {
 
     
 
-    function getSelected(string memory _vehicleNo)
+    function getSelected(string memory _licence_id)
         public
         view
         returns (User memory)
@@ -166,10 +166,10 @@ contract CarpoolingSystemFinal {
         string memory selectedDriver = setSelectedDriver;
         require(
             keccak256(abi.encodePacked(selectedDriver)) ==
-                keccak256(abi.encodePacked(_vehicleNo)),
+                keccak256(abi.encodePacked(_licence_id)),
             "Only CHOOSE driver can perform this action"
         );
-        return user_by_vehicleNo[setSelectedDriver];
+        return user_by_licence_id[setSelectedDriver];
     }
 
     function makePayment( 
@@ -177,7 +177,9 @@ contract CarpoolingSystemFinal {
         string memory _from,
         string memory _dest,
         string memory _phone_no,
-        string memory _vehicleNo
+        string memory _vehicleNo,
+        string memory _licence_id
+
     ) public payable {
         Car storage car = carpools[_vehicleNo];
         require(msg.sender != car.driver, "Cannot pay yourself");
@@ -186,7 +188,7 @@ contract CarpoolingSystemFinal {
 
         car.driver.transfer(msg.value);
         userId = userId + 1;
-        user_by_vehicleNo[_vehicleNo]=(
+        user_by_licence_id[_licence_id]=(
             User(
                 msg.sender,
                 _name,
@@ -197,7 +199,7 @@ contract CarpoolingSystemFinal {
                 carpools[_vehicleNo]
             )
         );
-        user_by_phone_no[_phone_no].push(user_by_vehicleNo[_vehicleNo]);
-        setSelectedDriver = _vehicleNo;
+        user_by_phone_no[_phone_no].push(user_by_licence_id[_licence_id]);
+        setSelectedDriver = _licence_id;
     }
 }

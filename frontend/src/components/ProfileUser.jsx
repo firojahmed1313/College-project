@@ -23,7 +23,7 @@ const ProfileUser = ({ car }) => {
     
     try {
       const amount = { value: ethers.parseEther("0.01") };
-      const transaction = await contract.makePayment(addUserData.vehicleNo, amount);
+      const transaction = await contract.makePayment(addUserData.name,addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo, amount);
       await transaction.wait();
       console.log("Transaction is done");
       console.log("Payment Sucessfull Wait For Booking");
@@ -38,9 +38,9 @@ const ProfileUser = ({ car }) => {
         theme: "dark",
       });
       console.log(transaction);
-      const Useraddincon = await contract.addUser(addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo);
-      await Useraddincon.wait();
-      console.log(Useraddincon);
+      //const Useraddincon = await contract.addUser(addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo);
+      //await Useraddincon.wait();
+      //console.log(Useraddincon);
       console.log("Booking Sucessfull");
       toast.success("Booking Sucessfull", {
         position: "top-center",

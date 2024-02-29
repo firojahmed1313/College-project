@@ -42,7 +42,7 @@ async function main() {
         "vehicle":"qwe",
         "vehicleNo":"123",
         "category":"qwe",
-        "licence_id":"12456",
+        "licence_id":"1234",
         "phoneNumber":"1235465789",
         "rent":"12",
         'from':"kol",
@@ -59,10 +59,10 @@ async function main() {
     console.log(Caraddincon2.to, "from", Caraddincon2.from);
 
     const amount = { value: ethers.parseEther("2").toString() };
-    const paymenttodriver = await carDeploy.connect(user1).makePayment("raihan","kol", "des", "12345","re", amount);
+    const paymenttodriver = await carDeploy.connect(user1).makePayment("raihan","kol", "des", "12345","re","1234" ,amount);
     await paymenttodriver.wait();
     console.log(paymenttodriver.to, "from", paymenttodriver.from);
-    const paymenttodriver2 = await carDeploy.connect(user2).makePayment("firoj","kol", "des", "12345","rer", amount);
+    const paymenttodriver2 = await carDeploy.connect(user2).makePayment("firoj","kol", "des", "12345","rer","1234", amount);
     await paymenttodriver2.wait();
     console.log(paymenttodriver2.to, "from", paymenttodriver2.from);
 
@@ -75,15 +75,15 @@ async function main() {
     console.log(carCount);
 
 
-    const AvailableCarpools = await carDeploy.getAvailableCarpools("re");
+    const AvailableCarpools = await carDeploy.getAvailableCarpools("rer");
     console.log(AvailableCarpools);
     const AvailableCarpoolByDest = await carDeploy.getAvailableCarByDest("koldes");
     console.log(AvailableCarpoolByDest);
-    const AvailableCarpoolByLicence = await carDeploy.getAvailableCarBylicenceId("123");
+    const AvailableCarpoolByLicence = await carDeploy.getAvailableCarBylicenceId("1234");
     console.log(AvailableCarpoolByLicence);
     const userBookedCar = await carDeploy.connect(user1).getAvailableUser("12345");
     console.log(userBookedCar);
-    const selectCar = await carDeploy.getSelected("rer");
+    const selectCar = await carDeploy.getSelected("1234");
     console.log(selectCar);
 
 
