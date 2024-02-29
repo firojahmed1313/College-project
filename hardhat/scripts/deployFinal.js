@@ -33,7 +33,7 @@ async function main() {
         user2.address,
     ];
 
-    //await cosoleBalances(addresses);
+    await cosoleBalances(addresses);
 
     const carData={
         "carOwner": owner.address,
@@ -53,18 +53,16 @@ async function main() {
     await Caraddincon.wait();
     //console.log(Caraddincon);
     console.log(Caraddincon.to, "from", Caraddincon.from);
-    const AvailableCarpoolByDest = await carDeploy.getAvailableCarByDest("koldes");
-    console.log(AvailableCarpoolByDest);
-    /*const Caraddincon2 = await carDeploy.connect(driver2).addCar(owner.address, "3", "qwe", "we", "rer", "ert", "1234", "111111", "13", "kol", "des");
+    const Caraddincon2 = await carDeploy.connect(driver2).addCar(owner.address, "3", "qwe", "we", "rer", "ert", "1234", "111111", "13", "kol", "des");
     await Caraddincon2.wait();
     //console.log(Caraddincon);
     console.log(Caraddincon2.to, "from", Caraddincon2.from);
 
     const amount = { value: ethers.parseEther("2").toString() };
-    const paymenttodriver = await carDeploy.connect(user1).makePayment("kol", "des", "12345","re", amount);
+    const paymenttodriver = await carDeploy.connect(user1).makePayment("raihan","kol", "des", "12345","re", amount);
     await paymenttodriver.wait();
     console.log(paymenttodriver.to, "from", paymenttodriver.from);
-    const paymenttodriver2 = await carDeploy.connect(user2).makePayment("kol", "des", "12345","rer", amount);
+    const paymenttodriver2 = await carDeploy.connect(user2).makePayment("firoj","kol", "des", "12345","rer", amount);
     await paymenttodriver2.wait();
     console.log(paymenttodriver2.to, "from", paymenttodriver2.from);
 
@@ -86,10 +84,10 @@ async function main() {
     const userBookedCar = await carDeploy.connect(user1).getAvailableUser("12345");
     console.log(userBookedCar);
     const selectCar = await carDeploy.getSelected("rer");
-    console.log(selectCar);*/
+    console.log(selectCar);
 
 
-    //await cosoleBalances(addresses);
+    await cosoleBalances(addresses);
 
 }
 

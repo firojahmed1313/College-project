@@ -35,6 +35,7 @@ contract CarpoolingSystemFinal {
 
     struct User {
         address user;
+        string name;
         uint256 userId;
         string from;
         string dest;
@@ -106,24 +107,7 @@ contract CarpoolingSystemFinal {
         carpoollicence[_licence_id].push(carpools[_vehicleNo]);
     }
 
-   /* function addUser(
-        string memory _from,
-        string memory _dest,
-        string memory _phone_no,
-        string memory _vehicleNo
-    ) public {
-        userId = userId + 1;
-        user_by_phone_no[_phone_no].push(
-            User(
-                msg.sender,
-                userId,
-                _from,
-                _dest,
-                _phone_no,
-                carpools[_vehicleNo]
-            )
-        );
-    }*/
+   
 
     function getUserCount() public view returns (uint256) {
         return userId;
@@ -172,9 +156,7 @@ contract CarpoolingSystemFinal {
         return currentUser;
     }
 
-    /*function setSelected(string memory _vehicleNo) public {
-        setSelectedDriver = _vehicleNo;
-    }*/
+    
 
     function getSelected(string memory _vehicleNo)
         public
@@ -191,12 +173,12 @@ contract CarpoolingSystemFinal {
     }
 
     function makePayment( 
+        string memory _name,
         string memory _from,
         string memory _dest,
         string memory _phone_no,
         string memory _vehicleNo
     ) public payable {
-        //require(_carId >= 0 && _carId <= carId, "Invalid car ID");
         Car storage car = carpools[_vehicleNo];
         require(msg.sender != car.driver, "Cannot pay yourself");
 
@@ -207,6 +189,7 @@ contract CarpoolingSystemFinal {
         user_by_vehicleNo[_vehicleNo]=(
             User(
                 msg.sender,
+                _name,
                 userId,
                 _from,
                 _dest,
