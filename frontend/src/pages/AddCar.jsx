@@ -53,8 +53,8 @@ const AddCar = () => {
             "licence_id": auth.user.licence_id,
             "phoneNumber": car.phone_no,
             "rent": car.rent,
-            'from': car.depert,
-            'dest': car.goingto
+            'from': car.depert.toUpperCase(),
+            'dest': car.goingto.toUpperCase()
         }
         const addCarFunction = async () => {
             try {
@@ -85,16 +85,6 @@ const AddCar = () => {
             }
         }
         addCarFunction();
-
-
-
-
-
-
-
-
-        //navigation('/driverProfile');
-
 
     };
 

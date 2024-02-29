@@ -8,25 +8,15 @@ const Location = () => {
     const auth = useContext(context);
     const navigate = useNavigate();
     const { contract } = auth.state;
-    /* useEffect(() => {
-         const carCount = async () => {
- 
-             const data4 = await contract.getAvailableCarByDest("KOLKAL");
-             console.log(data4);
- 
-         }
- 
-         carCount();
- 
-     }, [])*/
+    
     const onSubmits = async (e) => {
 
         e.preventDefault();
         console.log(auth.depert, auth.goingto);
+        const distance= auth.depert.toUpperCase() + auth.goingto.toUpperCase();
 
-
-
-        const data4 = await contract.getAvailableCarByDest("KOLKAL");
+        console.log("distance",distance);
+        const data4 = await contract.getAvailableCarByDest(distance);
         console.log(data4);
         auth.setAllDriver(data4);
         if(data4){

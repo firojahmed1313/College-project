@@ -11,31 +11,19 @@ const ProfileUser = ({ car }) => {
   const [payment, setPayment] = useState(false);
   const { contract } = auth.state;
   //console.log(contract);
-
-  /*
-  useEffect(() => {
-    const getUsercount = async () => {
-      try {
-        const data2 = await contract.getUserCount();
-        console.log(data2.toString())
-      } catch (error) {
-        console.warn(error)
-      }
-    }
-
-    getUsercount();
-
-  }, [])*/
-
-
-
-
-
+  const addUserData = {
+    "name":auth.user.name,
+    "from":auth.depert?.toUpperCase(),
+    "dest":auth.goingto?.toUpperCase(),
+    "phone_no":auth.user.phone,
+    "vehicleNo":book[6]
+  }
+  console.log(addUserData);
   const onPayment = async (e) => {
-
+    
     try {
       const amount = { value: ethers.parseEther("0.01") };
-      const transaction = await contract.makePayment("WB123", amount);
+      const transaction = await contract.makePayment(addUserData.vehicleNo, amount);
       await transaction.wait();
       console.log("Transaction is done");
       console.log("Payment Sucessfull Wait For Booking");
@@ -50,7 +38,7 @@ const ProfileUser = ({ car }) => {
         theme: "dark",
       });
       console.log(transaction);
-      const Useraddincon = await contract.addUser("KOL", "Kal", "9830789651", "WB123");
+      const Useraddincon = await contract.addUser(addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo);
       await Useraddincon.wait();
       console.log(Useraddincon);
       console.log("Booking Sucessfull");

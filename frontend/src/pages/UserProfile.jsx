@@ -9,7 +9,21 @@ const UserProfile = () => {
   const auth = useContext(context);
   console.log(auth);
   const { contract } = auth.state;
+  useEffect(() => {
+    const getUserRentCar = async () => {
+      try {
+        console.log(auth.user.phone);
+        const data2 = await contract.getAvailableUser(auth.user.phone);
+        console.log(data2);
+        setUserBookedCar(data2)
 
+      } catch (error) {
+        console.warn(error)
+      }
+    }
+
+    getUserRentCar();
+  }, [])
   const burl = import.meta.env.VITE_URL;
   useEffect(() => {
     const getProfile = async () => {
@@ -30,22 +44,11 @@ const UserProfile = () => {
         console.warn(error)
       }
     }
-    const getUserRentCar = async () => {
-      try {
-        const data2 = await contract.getAvailableUser("9830789651");
-        console.log(data2);
-        setUserBookedCar(data2)
-
-      } catch (error) {
-        console.warn(error)
-      }
-    }
-
-    getUserRentCar();
     getProfile();
   }, [])
 
-  
+
+
   console.log(userBookedCar);
   return (
     <div className="profile">

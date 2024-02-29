@@ -30,8 +30,8 @@ const Map = () => {
             <div className='mapContener'>
                 <div className='showmapContener' >
 
-                    {
-                        allDriver?.map((driver) => {
+                    {(allDriver.length!=0)?
+                        allDriver.map((driver) => {
                             return (
 
                                 <div className='mapsubContener' key={driver[3].toString()}>
@@ -54,7 +54,7 @@ const Map = () => {
                                 </div>
 
                             )
-                        })
+                        }):<h2 >NO DRIVER FOUND</h2>
                     }
                 </div>
                 <div className='map'>

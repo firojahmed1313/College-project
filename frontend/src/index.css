@@ -303,7 +303,11 @@ form>input[type="submit"]:hover {
   border-radius: 10px;
   height: fit-content;
 }
-
+.showmapContener >h2{
+  color: red;
+  text-align: center;
+  padding: 10% 20% ;
+}
 .maph2 {
   text-align: center;
   color: blue;

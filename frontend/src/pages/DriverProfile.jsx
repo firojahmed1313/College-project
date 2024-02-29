@@ -16,14 +16,8 @@ const DriverProfile = () => {
 
   useEffect(() => {
     const carCount = async () => {
-      /*const data = await contract.getCarCount();
-      console.log(data);
-      const data2 = await contract.getUserCount();
-      console.log(data2);
-      const data4 = await contract.getAvailableCarByDest("KOLKAL");
-      console.log(data4);*/
       try {
-        const data5 = await contract.getAvailableCarBylicenceId("789654");
+        const data5 = await contract.getAvailableCarBylicenceId(auth.user.licence_id);
         console.log(data5[0][0]);
         setCarDetails(data5);
       } catch (error) {
