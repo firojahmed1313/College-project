@@ -5,7 +5,7 @@ const AllRentCarDetails = ({ carDetails }) => {
   return (
     <>
 
-      {(carDetails) ?
+      {(carDetails.length!=0) ?
         carDetails.map((data) => {
 
           return (

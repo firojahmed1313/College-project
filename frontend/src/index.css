@@ -513,7 +513,7 @@ form>input[type="submit"]:hover {
 
 .booked {
   /*border: 2px solid blue;*/
-  height: 30vh;
+  height: fit-content;
   margin: 20px;
   margin-top: 30px;
   border-radius: 26px;
@@ -521,6 +521,7 @@ form>input[type="submit"]:hover {
   box-shadow: -13px -13px 50px #c2bebe,
     13px 13px 45px #ffffff;
   padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .booked>h2 {

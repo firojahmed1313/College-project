@@ -16,14 +16,15 @@ const ProfileUser = ({ car }) => {
     "from":auth.depert?.toUpperCase(),
     "dest":auth.goingto?.toUpperCase(),
     "phone_no":auth.user.phone,
-    "vehicleNo":book[6]
+    "vehicleNo":book[6],
+    "licence_id":book[8]
   }
   console.log(addUserData);
   const onPayment = async (e) => {
     
     try {
       const amount = { value: ethers.parseEther("0.01") };
-      const transaction = await contract.makePayment(addUserData.name,addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo, amount);
+      const transaction = await contract.makePayment(addUserData.name,addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo,addUserData.licence_id, amount);
       await transaction.wait();
       console.log("Transaction is done");
       console.log("Payment Sucessfull Wait For Booking");
