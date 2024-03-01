@@ -4,14 +4,12 @@ const AllRentCarDetails = ({ carDetails }) => {
   console.log(carDetails);
   return (
     <>
-
       {(carDetails.length!=0) ?
-        carDetails.map((data) => {
-
+        <>
+        <h2>List Of Your Booked Car : </h2>
+        {carDetails.map((data) => {
           return (
-            <>
-              <h2>List Of Your Booked Car : </h2>
-              <div className='AllCarDetails' key={data[3].toString()}>
+              <div className='AllCarDetails' key={data[6][3].toString()}>
                 <h5 className="carData"><span className="carDataSpan" >Owner :</span> {data[6][0]}</h5>
                 <h5 className="carData"><span className="carDataSpan" >Driver : </span> {data[6][1]}</h5>
                 <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {data[6][2].toString()}</h5>
@@ -26,9 +24,10 @@ const AllRentCarDetails = ({ carDetails }) => {
                 <h5 className="carData"><span className="carDataSpan" >From : </span> {data[6][11]}</h5>
                 <h5 className="carData"><span className="carDataSpan" >Dest : </span> {data[6][12]}</h5>
               </div>
-            </>
+            
           )
-        })
+          
+        })}</>
         : <h2> NO CAR BOOKED</h2>}
 
 

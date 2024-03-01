@@ -11,7 +11,8 @@ const ProfileNav = ({ d }) => {
     const navigator= useNavigate();
     console.log(auth);
     const logOut = () => {
-        Cookies.remove("tokenSmartPool");
+        Cookies.remove("tokenSmartPooldriver");
+        Cookies.remove("tokenSmartPooluser");
         auth.setIsAuth(false);
         auth.setUser("");
         auth.setDepert();

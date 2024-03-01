@@ -4,10 +4,13 @@ import ProfileUser from '../components/ProfileUser'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import context from '../context/Context'
+import { useNavigate } from 'react-router-dom'
 const UserProfile = () => {
   const [userBookedCar, setUserBookedCar] = useState("")
   const auth = useContext(context);
+  const navigator=useNavigate()
   console.log(auth);
+  
   const { contract } = auth.state;
   useEffect(() => {
     const getUserRentCar = async () => {
@@ -27,6 +30,7 @@ const UserProfile = () => {
   const burl = import.meta.env.VITE_URL;
   useEffect(() => {
     const getProfile = async () => {
+      
       try {
         const url = `${burl}api/user/myProfile`
         const api = await axios.get(url, {
@@ -44,7 +48,13 @@ const UserProfile = () => {
         console.warn(error)
       }
     }
-    getProfile();
+    if(auth.isAuth){
+      getProfile();
+
+    }
+    else{
+      navigator("/");
+    }
   }, [])
 
 

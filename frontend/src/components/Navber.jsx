@@ -11,10 +11,8 @@ const Navber = ({ d }) => {
 
         </div>
         <div className="right">
-          {(d === "user") ?
-            <Link to={"/userProfile"} className="navitem"><h3>User Profile</h3></Link>
-            : <Link to={"/driverProfile"} className="navitem" ><h3>Driver Profile</h3></Link>
-          }
+          {(d == "driver") && <Link to={"/driverProfile"} className="navitem"><h3>Driver Profile</h3></Link>}
+          {(d == "user") && <Link to={"/userProfile"} className="navitem"><h3>User Profile</h3></Link>}
 
           {/*<Link to={"/register"} className="navitem">
             <h3>Register</h3>

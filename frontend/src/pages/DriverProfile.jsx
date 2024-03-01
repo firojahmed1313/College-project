@@ -5,9 +5,11 @@ import context from '../context/Context'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import Display from '../components/Display'
+import { useNavigate } from 'react-router-dom'
 const DriverProfile = () => {
   const auth = useContext(context);
-  const [carDetails, setCarDetails] = useState("")
+  const [carDetails, setCarDetails] = useState("");
+  const navigator=useNavigate();
   console.log(auth);
 
   const { contract } = auth.state;
@@ -35,11 +37,7 @@ const DriverProfile = () => {
   useEffect(() => {
 
     const getProfile = async () => {
-
-
       try {
-
-
         const url = `${burl}api/driver/myProfile`
         const api = await axios.get(url, {
           headers: {
@@ -56,7 +54,11 @@ const DriverProfile = () => {
         console.warn(error)
       }
     }
-    getProfile();
+    if (auth.isAuth) {
+      getProfile();
+    } else {
+      navigator("/");
+    }
   }, [])
   return (
     <div className="profile">

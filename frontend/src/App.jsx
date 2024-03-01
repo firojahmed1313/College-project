@@ -19,6 +19,7 @@ import { ethers } from "ethers"
 const App = () => {
   const auth = useContext(context);
   const [data, setData] = useState();
+  
   useEffect(() => {
     const isCookiesuser = Cookies.get("tokenSmartPooluser");
     const isCookiesdriver = Cookies.get("tokenSmartPooldriver");
@@ -31,9 +32,11 @@ const App = () => {
       auth.setIsAuth(true);
       setData("driver");
     }
+    if(!auth.isAuth){
+      setData();
+    }
 
-
-  }, [])
+  }, [auth.isAuth])
 
 
   useEffect(() => {
@@ -84,7 +87,7 @@ const App = () => {
   return (
 
     <>
-      <Navber d={data}/>
+      <Navber d={data} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
