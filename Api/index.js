@@ -28,8 +28,8 @@ config({
 
 app.use(cors({
   
-    //origin: process.env.FRONTED_URL,
-    origin: "https://5173-firojahmed1-collegeproj-q61ufo89vz5.ws-us108.gitpod.io",
+    origin: process.env.FRONTED_URL,
+    //origin: "https://5173-firojahmed1-collegeproj-q61ufo89vz5.ws-us108.gitpod.io",
     methods:["GET" ,"POST" , "PUT" , "DELETE"],
     credentials: true,
     optionSuccessStatus:200
