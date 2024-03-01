@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Navber = () => {
+const Navber = ({ d }) => {
   return (
     <>
       <div className="Navber">
@@ -11,8 +11,11 @@ const Navber = () => {
 
         </div>
         <div className="right">
-          
-          
+          {(d === "user") ?
+            <Link to={"/userProfile"} className="navitem"><h3>User Profile</h3></Link>
+            : <Link to={"/driverProfile"} className="navitem" ><h3>Driver Profile</h3></Link>
+          }
+
           {/*<Link to={"/register"} className="navitem">
             <h3>Register</h3>
           </Link>

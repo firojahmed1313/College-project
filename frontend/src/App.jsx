@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
@@ -18,10 +18,18 @@ import abi from "./blokchain/contact/carPool.json"
 import { ethers } from "ethers"
 const App = () => {
   const auth = useContext(context);
+  const [data, setData] = useState();
   useEffect(() => {
-    const isCookies = Cookies.get("tokenSmartPool");
-    if (isCookies) {
+    const isCookiesuser = Cookies.get("tokenSmartPooluser");
+    const isCookiesdriver = Cookies.get("tokenSmartPooldriver");
+    if (isCookiesuser) {
       auth.setIsAuth(true);
+      setData("user");
+
+    }
+    else if (isCookiesdriver) {
+      auth.setIsAuth(true);
+      setData("driver");
     }
 
 
@@ -72,10 +80,11 @@ const App = () => {
     connectWallet();
   }, []);
   console.log(auth);
+  console.log(data);
   return (
 
     <>
-      <Navber />
+      <Navber d={data}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />

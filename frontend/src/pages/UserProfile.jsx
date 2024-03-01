@@ -32,7 +32,7 @@ const UserProfile = () => {
         const api = await axios.get(url, {
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `${Cookies.get("tokenSmartPool")}`
+            "Authorization": `${Cookies.get("tokenSmartPooluser")}`
           },
           withCredentials: true,
         })

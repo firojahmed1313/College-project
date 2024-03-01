@@ -27,6 +27,8 @@ const BookDetails = () => {
   console.log(carDetails);
   return (
     <>
+    {(carDetails)?
+    <>
       <h2>BOOKING DETAILS :</h2>
       <div className='AllCarDetails'>
         <h5 className="carData"><span className="carDataSpan" >User :</span> {carDetails[0]}</h5>
@@ -37,6 +39,9 @@ const BookDetails = () => {
         <h5 className="carData"><span className="carDataSpan" >Dest : </span> {carDetails[4]}</h5>
         <h5 className="carData"><span className="carDataSpan" >Booked VehicleNo : </span> {carDetails[6][6]}</h5>
       </div>
+      </>
+      :<h2>No Booking</h2>
+    }
     </>
   )
 }

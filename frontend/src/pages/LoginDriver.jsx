@@ -34,7 +34,7 @@ const LoginDriver = () => {
         auth.setIsAuth(true);
         auth.setUser(api.data.user);
         console.log(api.data.token);
-        Cookies.set("tokenSmartPool", JSON.stringify(api.data.token), {
+        Cookies.set("tokenSmartPooldriver", JSON.stringify(api.data.token), {
           expires: 1,
           sameSite: "strict",
           secure: true,
