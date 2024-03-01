@@ -32,7 +32,7 @@ const UserProfile = () => {
     const getProfile = async () => {
       
       try {
-        const url = `${burl}api/user/myProfile`
+        const url = `${burl}/api/user/myProfile`
         const api = await axios.get(url, {
           headers: {
             "Content-Type": "application/json",

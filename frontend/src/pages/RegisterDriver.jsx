@@ -31,7 +31,7 @@ const RegisterDriver = () => {
   const onSubmits = async (e) => {
     e.preventDefault();
     try {
-      const url= `${burl}api/driver/register`
+      const url= `${burl}/api/driver/register`
       const api= await axios.post(url,register,{
         headers: {
           "Content-Type": "application/json",

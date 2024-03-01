@@ -22,7 +22,7 @@ const LoginDriver = () => {
     e.preventDefault();
     console.log(email, password);
     try {
-      const url = `${burl}api/driver/logIn`
+      const url = `${burl}/api/driver/logIn`
       const api = await axios.post(url, { email, password }, {
         headers: {
           "Content-Type": "application/json",

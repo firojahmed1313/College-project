@@ -38,7 +38,7 @@ const DriverProfile = () => {
 
     const getProfile = async () => {
       try {
-        const url = `${burl}api/driver/myProfile`
+        const url = `${burl}/api/driver/myProfile`
         const api = await axios.get(url, {
           headers: {
             "Content-Type": "application/json",

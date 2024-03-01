@@ -32,7 +32,7 @@ const Register = () => {
   const onSubmits = async (e) => {
     e.preventDefault();
     try {
-      const url= `${burl}api/user/register`
+      const url= `${burl}/api/user/register`
       const api= await axios.post(url,register,{
         headers: {
           "Content-Type": "application/json",
