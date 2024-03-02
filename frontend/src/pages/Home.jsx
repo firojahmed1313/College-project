@@ -27,6 +27,9 @@ const Home = () => {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }} >
+                <div className="homeData" >
+                    <h3>driver :- email- driver@d.com , password :driver && user :- email- user@d.com , password :user</h3>
+                </div>
                 <div className="homeContainer" >
                     <div className="homeIcon">
                         <DirectionsCarIcon fontSize="large" style={{ margin: "10px 15px" }} />
@@ -40,12 +43,12 @@ const Home = () => {
                         <h3 style={{ margin: "10px 15px" }} >I Want To Ride</h3>
                         <Link to={"/register"} className="navitem">
                             <h3><ArrowForwardIcon /></h3>
-                        </Link>                    
+                        </Link>
                     </div>
                 </div>
-            </div>
+            </div >
 
-           
+
 
         </>
     );

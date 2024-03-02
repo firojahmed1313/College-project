@@ -264,13 +264,15 @@ form>input[type="submit"]:hover {
 }
 
 .homeContainer {
-
   position: relative;
   width: 30%;
-  left: 20%;
-  padding-top: 30vh;
+  left: 15%;
+  padding-top: 25vh;
 }
-
+.homeData>h3 {
+  text-align: center;
+  padding: 10px;
+}
 .homeIcon {
   display: flex;
   align-items: center;
