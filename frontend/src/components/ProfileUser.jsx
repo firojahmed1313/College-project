@@ -3,6 +3,7 @@ import AllRentCarDetails from './AllRentCarDetails';
 import context from '../context/Context';
 import { ethers } from 'ethers';
 import { ToastContainer, toast } from "react-toastify";
+import GetBlance from './GetBlance';
 
 
 const ProfileUser = ({ car }) => {
@@ -76,6 +77,9 @@ const ProfileUser = ({ car }) => {
         theme="dark"
       />
       <div className='ProfileDriver'>
+        <div className='paymentProfilecontaner'>
+          <GetBlance/>
+        </div>
         <div className='paymentProfilecontaner'>
           {(book) ?
             <>

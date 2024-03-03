@@ -453,6 +453,15 @@ form>input[type="submit"]:hover {
   color: #f0ebeb;
 }
 
+.getBlanceContainer{
+  /*border: 2px solid red ;*/
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 30px;
+  color: blue;
+}
+
 .paymentProfilecontaner {
   width: 90%;
   margin: auto;
