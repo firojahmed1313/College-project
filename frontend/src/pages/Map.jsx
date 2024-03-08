@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import context from '../context/Context';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import GoogleMap from '../components/GoogleMap';
 const Map = () => {
     const navigate = useNavigate();
     const auth = useContext(context);
@@ -13,7 +14,7 @@ const Map = () => {
         console.log("Booking Sucessfull");
         auth.setBook(dd);
         if (dd) {
-            
+
             navigate("/userProfile")
         }
         //navigate("/userProfile");
@@ -30,7 +31,7 @@ const Map = () => {
             <div className='mapContener'>
                 <div className='showmapContener' >
 
-                    {(allDriver.length!=0)?
+                    {(allDriver.length != 0) ?
                         allDriver.map((driver) => {
                             return (
 
@@ -47,18 +48,18 @@ const Map = () => {
                                     <h5 className="carData"><span className="carDataSpan" >From : </span> {driver[11]}</h5>
                                     <h5 className="carData"><span className="carDataSpan" >Dest : </span> {driver[12]}</h5>
 
-                                    <button onClick={()=>onBookfun(driver)} type="submit">
+                                    <button onClick={() => onBookfun(driver)} type="submit">
                                         Book
                                     </button>
 
                                 </div>
 
                             )
-                        }):<h2 >NO DRIVER FOUND</h2>
+                        }) : <h2 >NO DRIVER FOUND</h2>
                     }
                 </div>
                 <div className='map'>
-                    <img src={locationmap} alt='map' className='mapimg' />
+                    <GoogleMap />
                 </div>
             </div>
 
