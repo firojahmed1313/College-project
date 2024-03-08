@@ -174,7 +174,7 @@ form>input[type="submit"] {
 
 form>input[type="submit"]:hover {
   background-color: #c4342a;
-  
+
 
 }
 
@@ -596,11 +596,17 @@ form>input[type="submit"]:hover {
 
 }
 
+.homeImage {
+  
+  background-image: url("https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  
+}
 
-@media only screen and (min-width:601px) and (max-width:868px) {
-  form{
+@media only screen and (min-width:601px) and (max-width:968px) {
+  form {
     width: 80%;
   }
+
   .mapContener {
     border: 2px solid green;
     display: flex;
@@ -623,23 +629,32 @@ form>input[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  form{
+  .homeImage {
+  
+    background-image: url("https://images.unsplash.com/photo-1576469196962-433b47333f9b?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    
+  }
+  form {
     width: 90%;
   }
-  .profile{
+
+  .profile {
     flex-direction: column;
   }
-  .profileNav{
+
+  .profileNav {
     flex-direction: column;
     width: 100%;
     position: relative;
   }
-  .profilesub{
+
+  .profilesub {
     left: 0%;
     width: 100%;
     height: fit-content;
     position: relative;
   }
+
   .NavProfile {
     /*border: 2px solid green;*/
     margin: 0% 0px;
@@ -659,34 +674,47 @@ form>input[type="submit"]:hover {
     flex-wrap: wrap;
 
   }
-  
-  .getBlanceContainer{
+
+  .getBlanceContainer {
     flex-direction: column;
   }
+
   .Linkitem {
     padding-left: 10px;
 
   }
-  .homeContainer{
+
+  .homeContainer {
     width: 80%;
     left: 4%;
-    padding-top: 15vh;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
   }
-  .homeIcon{
+  
+  .homeIcon {
     width: fit-content;
+    margin: 30px 20px;
   }
-  .paymentProfilecontaner>h2{
+
+  .paymentProfilecontaner>h2 {
     font-size: medium;
   }
-  .allrentCar>h2{
+
+  .allrentCar>h2 {
     font-size: medium;
   }
-  .booked>h2{
+
+  .booked>h2 {
     font-size: medium;
   }
-  .allCar>h2{
+
+  .allCar>h2 {
     font-size: medium;
   }
+
   .mapContener {
     border: 2px solid green;
     display: flex;

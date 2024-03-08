@@ -7,6 +7,7 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
 // DEPERT FROM       GOING TO 
 import HomeImage from "../assets/carHome.jpg"
+import HomeImageMobile from "../assets/smartpoolHome.jpeg"
 import Extra from "../components/Extra";
 import context from "../context/Context";
 const Home = () => {
@@ -23,7 +24,7 @@ const Home = () => {
             {//<img className="homeImage" src={HomeImage} alt="Home Image"/>
             }
             <div className="homeImage" style={{
-                backgroundImage: 'url(' + HomeImage + ')', backgroundPosition: 'center',
+                backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
             }} >
