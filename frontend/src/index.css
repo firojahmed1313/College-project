@@ -160,7 +160,7 @@ input {
 }
 
 form>input[type="submit"] {
-  width: 20vw;
+  width: fit-content;
   border: none;
   cursor: pointer;
   background-color: #eb4034;
@@ -169,10 +169,13 @@ form>input[type="submit"] {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.4vmax;
   transition: all 0.5s;
+
 }
 
 form>input[type="submit"]:hover {
   background-color: #c4342a;
+  
+
 }
 
 .formiconplusi {
@@ -265,14 +268,16 @@ form>input[type="submit"]:hover {
 
 .homeContainer {
   position: relative;
-  width: 30%;
+  width: fit-content;
   left: 15%;
   padding-top: 25vh;
 }
+
 .homeData>h3 {
   text-align: center;
   padding: 10px;
 }
+
 .homeIcon {
   display: flex;
   align-items: center;
@@ -305,11 +310,13 @@ form>input[type="submit"]:hover {
   border-radius: 10px;
   height: fit-content;
 }
-.showmapContener >h2{
+
+.showmapContener>h2 {
   color: red;
   text-align: center;
-  padding: 10% 20% ;
+  padding: 10% 20%;
 }
+
 .maph2 {
   text-align: center;
   color: blue;
@@ -356,6 +363,7 @@ form>input[type="submit"]:hover {
   margin-left: 5%;
   display: flex;
   justify-content: space-between;
+  height: fit-content;
 
 }
 
@@ -453,7 +461,7 @@ form>input[type="submit"]:hover {
   color: #f0ebeb;
 }
 
-.getBlanceContainer{
+.getBlanceContainer {
   /*border: 2px solid red ;*/
   display: flex;
   justify-content: space-evenly;
@@ -471,7 +479,7 @@ form>input[type="submit"]:hover {
   background: linear-gradient(315deg, #d8d3d3, #fffafa);
   box-shadow: -13px -13px 45px #c2bebe,
     13px 13px 45px #ffffff;
-    padding-top: 3px;
+  padding-top: 3px;
 }
 
 .paymentProfilecontaner>H2 {
@@ -500,8 +508,8 @@ form>input[type="submit"]:hover {
   background: linear-gradient(315deg, #d8d3d3, #fffafa);
   box-shadow: -13px -13px 45px #c2bebe,
     13px 13px 45px #ffffff;
-    padding-top: 3px;
-    padding-top: 3px;
+  padding-top: 3px;
+  padding-top: 3px;
 }
 
 .allrentCar>h2 {
@@ -589,10 +597,49 @@ form>input[type="submit"]:hover {
 }
 
 
+@media only screen and (min-width:601px) and (max-width:868px) {
+  form{
+    width: 80%;
+  }
+  .mapContener {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .map {
+    width: 90%;
+    margin: auto;
+    aspect-ratio: 1;
+    height: auto;
+    margin-top: 10px;
+  }
 
+  .showmapContener {
+    width: 93%;
+  }
+}
 
 @media only screen and (max-width: 600px) {
+  form{
+    width: 90%;
+  }
+  .profile{
+    flex-direction: column;
+  }
+  .profileNav{
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+  }
+  .profilesub{
+    left: 0%;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+  }
   .NavProfile {
     /*border: 2px solid green;*/
     margin: 0% 0px;
@@ -612,10 +659,53 @@ form>input[type="submit"]:hover {
     flex-wrap: wrap;
 
   }
-
+  
+  .getBlanceContainer{
+    flex-direction: column;
+  }
   .Linkitem {
     padding-left: 10px;
 
   }
+  .homeContainer{
+    width: 80%;
+    left: 4%;
+    padding-top: 15vh;
+  }
+  .homeIcon{
+    width: fit-content;
+  }
+  .paymentProfilecontaner>h2{
+    font-size: medium;
+  }
+  .allrentCar>h2{
+    font-size: medium;
+  }
+  .booked>h2{
+    font-size: medium;
+  }
+  .allCar>h2{
+    font-size: medium;
+  }
+  .mapContener {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .map {
+    width: 90%;
+    margin: auto;
+    aspect-ratio: 1;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .showmapContener {
+    width: 93%;
+  }
+
 
 }

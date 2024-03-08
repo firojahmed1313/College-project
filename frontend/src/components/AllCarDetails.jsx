@@ -9,8 +9,8 @@ const AllCarDetails = ({ cardetails }) => {
 
         return (
           <div className='AllCarDetails' key={data[3].toString()}>
-            <h5 className="carData"><span className="carDataSpan" >Owner :</span> {data[0]}</h5>
-            <h5 className="carData"><span className="carDataSpan" >Driver : </span> {data[1]}</h5>
+            <h5 className="carData"><span className="carDataSpan" >Owner :</span> {(data[0]).substring(0,20)}...</h5>
+            <h5 className="carData"><span className="carDataSpan" >Driver : </span> {(data[1]).substring(0,20)}...</h5>
             <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {data[2].toString()}</h5>
             <h5 className="carData"><span className="carDataSpan" >CarId : </span> {data[3].toString()}</h5>
             <h5 className="carData"><span className="carDataSpan" >Name : </span> {data[4]}</h5>

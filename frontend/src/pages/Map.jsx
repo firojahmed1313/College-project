@@ -27,7 +27,7 @@ const Map = () => {
     return (
         <>
 
-            <h2 className='maph2'>MD FIROJ AHMED</h2>
+            <h2 className='maph2'></h2>
             <div className='mapContener'>
                 <div className='showmapContener' >
 

@@ -10,8 +10,8 @@ const AllRentCarDetails = ({ carDetails }) => {
         {carDetails.map((data) => {
           return (
               <div className='AllCarDetails' key={data[6][3].toString()}>
-                <h5 className="carData"><span className="carDataSpan" >Owner :</span> {data[6][0]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >Driver : </span> {data[6][1]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Owner :</span> {data[6][0].substring(0,20)}...</h5>
+                <h5 className="carData"><span className="carDataSpan" >Driver : </span> {data[6][1].substring(0,20)}...</h5>
                 <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {data[6][2].toString()}</h5>
                 <h5 className="carData"><span className="carDataSpan" >CarId : </span> {data[6][3].toString()}</h5>
                 <h5 className="carData"><span className="carDataSpan" >Name : </span> {data[6][4]}</h5>
