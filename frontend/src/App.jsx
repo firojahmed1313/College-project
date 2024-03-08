@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useRoutes } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -16,10 +16,29 @@ import context from "./context/Context";
 import Cookies from 'js-cookie'
 import abi from "./blokchain/contact/carPool.json"
 import { ethers } from "ethers"
+import { PageTransition } from '@steveeeie/react-page-transition';
+const Paget = () => {
+  let routes = useRoutes([
+    { path: '/', element: <Home /> },
+    { path: '/register', element: <Register /> },
+    { path: '/login', element: <Login /> },
+    { path: '/registerdriver', element: <RegisterDriver /> },
+    { path: '/logindriver', element: <LoginDriver /> },
+    { path: '/addcar', element: <AddCar /> },
+    { path: '/mapDetails', element: <Map /> },
+    { path: '/payment', element: <Payment /> },
+    { path: '/location', element: <Location /> },
+    { path: '/driverProfile', element: <DriverProfile /> },
+    { path: '/userProfile', element: <UserProfile /> },
+    // Fallback route for unmatched paths
+    
+  ]);
+  return routes;
+}
 const App = () => {
   const auth = useContext(context);
   const [data, setData] = useState();
-  
+
   useEffect(() => {
     const isCookiesuser = Cookies.get("tokenSmartPooluser");
     const isCookiesdriver = Cookies.get("tokenSmartPooldriver");
@@ -32,7 +51,7 @@ const App = () => {
       auth.setIsAuth(true);
       setData("driver");
     }
-    if(!auth.isAuth){
+    if (!auth.isAuth) {
       setData();
     }
 
@@ -84,10 +103,21 @@ const App = () => {
   }, []);
   console.log(auth);
   console.log(data);
+
   return (
 
     <>
       <Navber d={data} />
+      {/*<PageTransition
+        preset="moveToLeftFromRight"
+        transitionKey={window.location.pathname}
+      >
+
+        <Paget />
+
+
+      </PageTransition>*/}
+      {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -100,7 +130,7 @@ const App = () => {
         <Route path="/location" element={<Location />} />
         <Route path="/driverProfile" element={<DriverProfile />} />
         <Route path="/userProfile" element={<UserProfile />} />
-      </Routes>
+      </Routes>}
     </>
   );
 };
