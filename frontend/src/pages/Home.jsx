@@ -28,7 +28,7 @@ const Home = () => {
                 backgroundRepeat: 'no-repeat'
             }} >
                 <div className="homeData" >
-                    <h3>driver :- email- driver@d.com , password :driver && user :- email- user@d.com , password :user</h3>
+                    <h3>driver :- licence_id- driver123 , password :driver && user :- phoneNo- 9830789651 , password :user</h3>
                 </div>
                 <div className="homeContainer" >
                     <div className="homeIcon">

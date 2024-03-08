@@ -10,7 +10,7 @@ export const userRegister = async (req, res) => {
     console.log(req.body);
     const { name, email, phone, password } = req.body;
 
-    const userExist = await User.findOne({ email });
+    const userExist = await User.findOne({ phone });
     if (userExist) {
         return res.status(200).json({
             success: false,
@@ -34,9 +34,9 @@ export const userRegister = async (req, res) => {
 }
 export const userLogIn = async (req, res) => {
     //console.log(req.body);
-    const { email,password } = req.body;
+    const { phone,password } = req.body;
 
-    const userExist = await User.findOne({ email });
+    const userExist = await User.findOne({ phone });
     //console.log(userExist);
     if (!userExist) {
         return res.status(200).json({

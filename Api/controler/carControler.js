@@ -9,7 +9,7 @@ export const driverRegister = async (req, res) => {
     console.log(req.body);
     const { name,email, password , licence_id} = req.body;
 
-    const driverExist = await Driver.findOne({ email });
+    const driverExist = await Driver.findOne({ licence_id });
     if (driverExist) {
         return res.status(200).json({
             success: false,
@@ -33,9 +33,9 @@ export const driverRegister = async (req, res) => {
 }
 export const driverLogIn = async (req, res) => {
     console.log(req.body);
-    const { email, password } = req.body;
+    const { licence_id, password } = req.body;
 
-    const driverExist = await Driver.findOne({ email });
+    const driverExist = await Driver.findOne({ licence_id });
     
     
     console.log(driverExist);

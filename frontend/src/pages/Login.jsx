@@ -8,9 +8,10 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useNavigate } from "react-router-dom";
 import context from "../context/Context";
 import Cookies from 'js-cookie'
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 const Login = () => {
-  const [email, setemail] = useState("");
+  const [phone, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [isVisiable, setIsVisiable] = useState(false);
   const navigator = useNavigate();
@@ -19,10 +20,10 @@ const Login = () => {
   const burl = import.meta.env.VITE_URL;
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log(phone, password);
     try {
       const url = `${burl}/api/user/logIn`
-      const api = await axios.post(url, { email, password }, {
+      const api = await axios.post(url, { phone, password }, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -88,13 +89,13 @@ const Login = () => {
         <form onSubmit={onSubmit} >
           <h1>LOGIN</h1>
           <div className="formiconplusi">
-            <LocalPostOfficeIcon fontSize="large" />
+          <LocalPhoneIcon fontSize="large" />
             <input
-              placeholder="Enter Your Email"
-              type="email"
-              name="email"
-              id="email"
-              value={email}
+              placeholder="Enter Your Phone No"
+              type="text"
+              name="phone"
+              id="phone"
+              value={phone}
               onChange={(e) => setemail(e.target.value)}
             />
           </div>

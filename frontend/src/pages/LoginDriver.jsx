@@ -11,7 +11,7 @@ import context from "../context/Context";
 import Cookies from 'js-cookie'
 
 const LoginDriver = () => {
-  const [email, setemail] = useState("");
+  const [licence_id, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [isVisiable, setIsVisiable] = useState(false);
   const navigator = useNavigate();
@@ -20,10 +20,10 @@ const LoginDriver = () => {
   console.log(auth)
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log(licence_id, password);
     try {
       const url = `${burl}/api/driver/logIn`
-      const api = await axios.post(url, { email, password }, {
+      const api = await axios.post(url, { licence_id, password }, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -90,13 +90,13 @@ const LoginDriver = () => {
         <form onSubmit={onSubmit} >
           <h1>LOGIN</h1>
           <div className="formiconplusi">
-            <LocalPostOfficeIcon fontSize="large" />
+          <BadgeIcon fontSize="large" />
             <input
-              placeholder="Enter Your email"
+              placeholder="Enter Your Licence id"
               type="text"
-              name="email"
-              id="email"
-              value={email}
+              name="licence_id"
+              id="licence_id"
+              value={licence_id}
               onChange={(e) => setemail(e.target.value)}
             />
           </div>
