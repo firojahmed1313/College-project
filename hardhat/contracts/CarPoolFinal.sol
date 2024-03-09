@@ -1,16 +1,18 @@
 // SPDX-License-Identifier: Unlicensed
 
-pragma solidity ^0.8.17;
-
-//add,3,qwe,we,re,ert,123,111111,13,kol,des
-//kol,des,1234567,re,123
+pragma solidity ^0.8.17 optimizer runs=200;
+//pragma solidity optimizer runs=200;
+//0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,3,qwe,we,re,ert,123,111111,13,kol,des
+//kol,des,1234567,re
 // add user with payment and setSelected*
 //GET CHANGE*
+
 contract CarpoolingSystemFinal {
     address driver;
     uint256 internal carId;
     uint256 internal userId;
     string internal setSelectedDriver;
+    mapping(string => bool) public isDeleted;
 
     struct Car {
         address payable carOwner;
@@ -22,20 +24,17 @@ contract CarpoolingSystemFinal {
         string vehicleNo; //
         string category; //
         string licence_id; //
-        //
         string phoneNumber; //
         uint256 rent; //
         string from; //
         string dest; //
     }
     mapping(string => Car) carpools;
-    //Car[] public  allcar;
     mapping(string => Car[]) carpool;
     mapping(string => Car[]) carpoollicence;
 
     struct User {
         address user;
-        string name;
         uint256 userId;
         string from;
         string dest;
@@ -45,26 +44,13 @@ contract CarpoolingSystemFinal {
     }
 
     mapping(string => User[]) internal user_by_phone_no;
-    mapping(string => User) user_by_licence_id;
+    mapping(string => User) user_by_vehicleNo;
+    mapping (string => User[]) bookedDatabyvehicleNo;
 
     constructor() {
         driver = payable(msg.sender);
     }
 
-    modifier onlyOwner() {
-        require(
-            msg.sender == driver,
-            "Only contract owner can perform this action"
-        );
-        _;
-    }
-    modifier notOwner() {
-        require(
-            msg.sender != driver,
-            "Only contract user can perform this action"
-        );
-        _;
-    }
 
     function addCar(
         address payable _carOwner,
@@ -107,15 +93,40 @@ contract CarpoolingSystemFinal {
         carpoollicence[_licence_id].push(carpools[_vehicleNo]);
     }
 
-   
+    function cardeleteRecord(string memory _vehicleNo) public {
+        require(!isDeleted[_vehicleNo], "The record is already deleted");
+        Car storage car = carpools[_vehicleNo];
+        string memory fromDest = string(
+            abi.encodePacked(bytes(car.from), bytes(car.dest))
+        );
+        uint256 index;
+        uint256 length = carpool[fromDest].length;
+        for (uint256 i = 0; i < length; i++) {
+            if (keccak256(bytes(carpool[fromDest][i].vehicleNo)) == keccak256(bytes(_vehicleNo))) {
+                index = i;
+                break;
+            }
+        }
+        carpool[fromDest][index] = carpool[fromDest][length - 1];
+        carpool[fromDest].pop();
 
-    function getUserCount() public view returns (uint256) {
-        return userId;
+        // Remove the car from the carpoollicence mapping
+        length = carpoollicence[car.licence_id].length;
+        for (uint256 i = 0; i < length; i++) {
+            if (keccak256(bytes(carpoollicence[car.licence_id][i].vehicleNo ))== keccak256(bytes(_vehicleNo))) {
+                index = i;
+                break;
+            }
+        }
+        carpoollicence[car.licence_id][index] = carpoollicence[car.licence_id][
+            length - 1
+        ];
+        carpoollicence[car.licence_id].pop();
+        delete carpools[_vehicleNo];
+        isDeleted[_vehicleNo] = true;
     }
 
-    function getCarCount() public view returns (uint256) {
-        return carId;
-    }
+    
 
     function getAvailableCarpools(string memory _vehicleNo)
         public
@@ -132,6 +143,15 @@ contract CarpoolingSystemFinal {
         returns (Car[] memory)
     {
         Car[] memory currentCar = carpoollicence[_licence_id];
+
+        return currentCar;
+    }
+    function getBookedCarBylicenceId(string memory _licence_id)
+        public
+        view
+        returns (User[] memory)
+    {
+        User[] memory currentCar = bookedDatabyvehicleNo[_licence_id];
 
         return currentCar;
     }
@@ -156,9 +176,11 @@ contract CarpoolingSystemFinal {
         return currentUser;
     }
 
-    
+    function setSelected() public {
+        setSelectedDriver = "";
+    }
 
-    function getSelected(string memory _licence_id)
+    function getSelected(string memory _vehicleNo)
         public
         view
         returns (User memory)
@@ -166,21 +188,19 @@ contract CarpoolingSystemFinal {
         string memory selectedDriver = setSelectedDriver;
         require(
             keccak256(abi.encodePacked(selectedDriver)) ==
-                keccak256(abi.encodePacked(_licence_id)),
+                keccak256(abi.encodePacked(_vehicleNo)),
             "Only CHOOSE driver can perform this action"
         );
-        return user_by_licence_id[setSelectedDriver];
+        return user_by_vehicleNo[setSelectedDriver];
     }
 
-    function makePayment( 
-        string memory _name,
+    function makePayment(
         string memory _from,
         string memory _dest,
         string memory _phone_no,
-        string memory _vehicleNo,
-        string memory _licence_id
-
+        string memory _vehicleNo
     ) public payable {
+        //require(_carId >= 0 && _carId <= carId, "Invalid car ID");
         Car storage car = carpools[_vehicleNo];
         require(msg.sender != car.driver, "Cannot pay yourself");
 
@@ -188,10 +208,9 @@ contract CarpoolingSystemFinal {
 
         car.driver.transfer(msg.value);
         userId = userId + 1;
-        user_by_licence_id[_licence_id]=(
+        user_by_vehicleNo[_vehicleNo] = (
             User(
                 msg.sender,
-                _name,
                 userId,
                 _from,
                 _dest,
@@ -199,7 +218,11 @@ contract CarpoolingSystemFinal {
                 carpools[_vehicleNo]
             )
         );
-        user_by_phone_no[_phone_no].push(user_by_licence_id[_licence_id]);
-        setSelectedDriver = _licence_id;
+        user_by_phone_no[_phone_no].push(user_by_vehicleNo[_vehicleNo]);
+        setSelectedDriver = _vehicleNo;
     }
+    function bookedList(string memory _vehicleNo,string memory _licence_id) public  {
+        bookedDatabyvehicleNo[_licence_id].push(user_by_vehicleNo[_vehicleNo]);
+    }
+
 }

@@ -85,8 +85,10 @@ async function main() {
     console.log(userBookedCar);
     const selectCar = await carDeploy.getSelected("1234");
     console.log(selectCar);
-
-
+    const selectBOOKCar = await carDeploy.bookedList("rer","1234");
+    console.log(selectBOOKCar);
+    const BookedCar = await carDeploy.connect(driver1).getBookedCarBylicenceId("12345");
+    console.log(BookedCar);
     await cosoleBalances(addresses);
 
 }
