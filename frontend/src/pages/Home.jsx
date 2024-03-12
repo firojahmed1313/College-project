@@ -10,6 +10,7 @@ import HomeImage from "../assets/carHome.jpg"
 import HomeImageMobile from "../assets/smartpoolHome.jpeg"
 import Extra from "../components/Extra";
 import context from "../context/Context";
+import StarsIcon from '@mui/icons-material/Stars';
 const Home = () => {
     const auth = useContext(context);
     console.log(auth);
@@ -31,7 +32,14 @@ const Home = () => {
                 <div className="homeData" >
                     <h3>driver :- licence_id- driver123 , password :driver && user :- phoneNo- 9830789651 , password :user</h3>
                 </div>
-                {(!auth.isAuth)?<div className="homeContainer" >
+                {(!auth.isAuth) ? <div className="homeContainer" >
+                    <div className="homeIcon">
+                        <StarsIcon fontSize="large" style={{ margin: "10px 15px" }} />
+                        <h3 style={{ margin: "10px 15px" }} >Owner</h3>
+                        <Link to={"/"} className="navitem">
+                            <h3><ArrowForwardIcon /></h3>
+                        </Link>
+                    </div>
                     <div className="homeIcon">
                         <DirectionsCarIcon fontSize="large" style={{ margin: "10px 15px" }} />
                         <h3 style={{ margin: "10px 15px" }} >I Want To Drive</h3>
@@ -46,7 +54,7 @@ const Home = () => {
                             <h3><ArrowForwardIcon /></h3>
                         </Link>
                     </div>
-                </div>:null}
+                </div> : null}
             </div >
 
 
