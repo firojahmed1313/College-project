@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Unlicensed
 
-pragma solidity ^0.8.17 optimizer runs=200;
+pragma solidity ^0.8.24;
 //pragma solidity optimizer runs=200;
 //0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,3,qwe,we,re,ert,123,111111,13,kol,des
 //kol,des,1234567,re
@@ -15,14 +15,12 @@ contract CarpoolingSystemFinal {
     mapping(string => bool) public isDeleted;
 
     struct Car {
-        address payable carOwner;
         address payable driver;
-        uint256 num_of_seat; //
-        uint256 carId;
+        uint256 num_of_seat;
         string name; //
         string vehicle; //
-        string vehicleNo; //
-        string category; //
+        string vehicleNo; 
+        string category;
         string licence_id; //
         string phoneNumber; //
         uint256 rent; //
@@ -47,11 +45,6 @@ contract CarpoolingSystemFinal {
     mapping(string => User) user_by_vehicleNo;
     mapping (string => User[]) bookedDatabyvehicleNo;
 
-    constructor() {
-        driver = payable(msg.sender);
-    }
-
-
     function addCar(
         address payable _carOwner,
         uint256 _num_of_seat,
@@ -74,13 +67,11 @@ contract CarpoolingSystemFinal {
         carpools[_vehicleNo] = (
             Car(
                 _carOwner,
-                payable(msg.sender),
                 _num_of_seat,
-                carId,
-                _name,
+                 _name,
                 _vehicle,
                 _vehicleNo,
-                _category,
+                _category,               
                 _licence_id,
                 _phoneNumber,
                 _rent,
@@ -126,7 +117,9 @@ contract CarpoolingSystemFinal {
         isDeleted[_vehicleNo] = true;
     }
 
-    
+    function getUserCount() public view returns (uint256) {
+        return userId;
+    }
 
     function getAvailableCarpools(string memory _vehicleNo)
         public
@@ -204,7 +197,7 @@ contract CarpoolingSystemFinal {
         Car storage car = carpools[_vehicleNo];
         require(msg.sender != car.driver, "Cannot pay yourself");
 
-        require(msg.value >= car.rent, "Insufficient funds to make payment");
+        //require(msg.value >= car.rent, "Insufficient funds to make payment");
 
         car.driver.transfer(msg.value);
         userId = userId + 1;
