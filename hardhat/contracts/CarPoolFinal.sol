@@ -11,9 +11,10 @@ contract CarpoolingSystemFinal {
     address driver;
     uint256 internal carId;
     uint256 internal userId;
-    string internal setSelectedDriver;
     mapping(string => bool) public isDeleted;
 
+    mapping (string=>string) public setSelectedDrivers;
+ 
     struct Car {
         address payable driver;
         uint256 num_of_seat;
@@ -169,22 +170,22 @@ contract CarpoolingSystemFinal {
         return currentUser;
     }
 
-    function setSelected() public {
-        setSelectedDriver = "";
+    function setSelected(string memory _licence_id) public {
+        delete setSelectedDrivers[_licence_id] ;
     }
 
-    function getSelected(string memory _vehicleNo)
+    function getSelected(string memory _vehicleNo,string memory _licence_id)
         public
         view
         returns (User memory)
     {
-        string memory selectedDriver = setSelectedDriver;
+        string memory selectedDriver = setSelectedDrivers[_licence_id];
         require(
             keccak256(abi.encodePacked(selectedDriver)) ==
                 keccak256(abi.encodePacked(_vehicleNo)),
             "Only CHOOSE driver can perform this action"
         );
-        return user_by_vehicleNo[setSelectedDriver];
+        return user_by_vehicleNo[selectedDriver];
     }
 
     function makePayment(
@@ -197,7 +198,7 @@ contract CarpoolingSystemFinal {
         Car storage car = carpools[_vehicleNo];
         require(msg.sender != car.driver, "Cannot pay yourself");
 
-        //require(msg.value >= car.rent, "Insufficient funds to make payment");
+        require(msg.value >= car.rent, "Insufficient funds to make payment");
 
         car.driver.transfer(msg.value);
         userId = userId + 1;
@@ -212,7 +213,7 @@ contract CarpoolingSystemFinal {
             )
         );
         user_by_phone_no[_phone_no].push(user_by_vehicleNo[_vehicleNo]);
-        setSelectedDriver = _vehicleNo;
+        setSelectedDrivers[car.licence_id] = _vehicleNo;
     }
     function bookedList(string memory _vehicleNo,string memory _licence_id) public  {
         bookedDatabyvehicleNo[_licence_id].push(user_by_vehicleNo[_vehicleNo]);

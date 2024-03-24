@@ -38,7 +38,7 @@ async function main() {
     const carData={
         "carOwner": owner.address,
         "num_of_seat": "2",
-        "name":"123",
+        "name":"1e",
         "vehicle":"qwe",
         "vehicleNo":"123",
         "category":"qwe",
@@ -53,7 +53,7 @@ async function main() {
     await Caraddincon.wait();
     //console.log(Caraddincon);
     console.log(Caraddincon.to, "from", Caraddincon.from);
-    const Caraddincon2 = await carDeploy.connect(driver2).addCar(owner.address, "3", "qwe", "we", "rer", "ert", "1234", "111111", "13", "kol", "des");
+    const Caraddincon2 = await carDeploy.connect(driver2).addCar(owner.address, "3", "qwe", "we", "rer", "ert", "123456", "111111", "13", "kol", "des");
     await Caraddincon2.wait();
     //console.log(Caraddincon);
     console.log(Caraddincon2.to, "from", Caraddincon2.from);
@@ -69,25 +69,30 @@ async function main() {
     //await userCount.wait();
     console.log(userCount);
     const AvailableCarpools = await carDeploy.getAvailableCarpools("rer");
-    console.log(AvailableCarpools);
+    console.log("getAvailableCarpools",AvailableCarpools);
     const AvailableCarpoolByDest = await carDeploy.getAvailableCarByDest("koldes");
     console.log("getAvailableCarByDest",AvailableCarpoolByDest);
     const AvailableCarpoolByLicence = await carDeploy.getAvailableCarBylicenceId("1234");
-    console.log(AvailableCarpoolByLicence);
+    console.log("getAvailableCarBylicenceId",AvailableCarpoolByLicence);
     const userBookedCar = await carDeploy.connect(user1).getAvailableUser("12345");
-    console.log(userBookedCar);
-    const selectCar = await carDeploy.getSelected("123");
-    console.log(selectCar);
+    console.log("getAvailableUser",userBookedCar);
+    const selectCar = await carDeploy.connect(driver1).getSelected("123","1234");
+    console.log("getSelected",selectCar);
+    const selectCar2 = await carDeploy.connect(driver2).getSelected("rer","123456");
+    console.log("getSelected2",selectCar2);
     const selectBOOKCar = await carDeploy.bookedList("rer","1234");
     const selectBOOKCar2 = await carDeploy.bookedList("123","1234");
     await selectBOOKCar.wait();
     console.log(selectBOOKCar.to, "from", selectBOOKCar.from);
     const BookedCar = await carDeploy.connect(driver1).getBookedCarBylicenceId("1234");
-    console.log(BookedCar);
+    console.log("getBookedCarBylicenceId",BookedCar);
     await cosoleBalances(addresses);
     const deleteCar = await carDeploy.connect(driver1).cardeleteRecord("123");
     const AvailableCarpoolByDest2 = await carDeploy.getAvailableCarByDest("koldes");
     console.log( "getAvailableCarByDest",AvailableCarpoolByDest2);
+    const getCar2 = await carDeploy.connect(driver2).setSelected("1234");
+    const selectCar3 = await carDeploy.connect(driver2).getSelected("rer","123456");
+    console.log("getSelectedlast",selectCar3);
 
 
 }
