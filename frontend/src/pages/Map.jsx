@@ -26,11 +26,13 @@ const Map = () => {
     }, [])
     return (
         <>
-
-            <h2 className='maph2'></h2>
+            <h2 className='maph2'>List All Driver :</h2>
+            <div className='mapCatagory'>
+                <button>Firoj</button>
+                <button>Firoj</button>
+            </div>
             <div className='mapContener'>
                 <div className='showmapContener' >
-
                     {(allDriver.length != 0) ?
                         allDriver.map((driver) => {
                             return (

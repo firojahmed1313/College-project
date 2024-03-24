@@ -34,7 +34,22 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+details>summary{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: blue;
+  margin: 3px;
+  cursor: pointer;
+}
+details[open] {
+  padding: 0.5em;
+}
 
+details[open] summary {
+  margin-bottom: 0.5em;
+  
+}
 .allButton {
   display: flex;
   justify-content: space-around;
@@ -289,7 +304,14 @@ form>input[type="submit"]:hover {
   box-shadow: 8px 8px 16px #d8cfcf,
     -8px -8px 16px #ffffff;
 }
+.mapCatagory{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
 
+}
 .mapContener {
   /*border: 2px solid black;*/
   margin: 20px 5%;

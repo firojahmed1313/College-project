@@ -4,7 +4,8 @@ const AllCarDetails = ({ cardetails }) => {
   console.log(cardetails);
   return (
     <>
-      <h2>List Of Your Registed Car : </h2>
+      <details>
+      <summary >List Of Your Registed Car : </summary>
       {(cardetails) ? cardetails?.map((data) => {
 
         return (
@@ -27,7 +28,7 @@ const AllCarDetails = ({ cardetails }) => {
         )
       }) : <h2></h2>}
 
-
+      </details>
     </>
   )
 }

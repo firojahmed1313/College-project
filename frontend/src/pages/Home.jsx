@@ -33,13 +33,13 @@ const Home = () => {
                     <h3>driver :- licence_id- driver123 , password :driver && user :- phoneNo- 9830789651 , password :user</h3>
                 </div>
                 {(!auth.isAuth) ? <div className="homeContainer" >
-                    <div className="homeIcon">
+                    {/*<div className="homeIcon">
                         <StarsIcon fontSize="large" style={{ margin: "10px 15px" }} />
                         <h3 style={{ margin: "10px 15px" }} >Owner</h3>
                         <Link to={"/"} className="navitem">
                             <h3><ArrowForwardIcon /></h3>
                         </Link>
-                    </div>
+                    </div>*/}
                     <div className="homeIcon">
                         <DirectionsCarIcon fontSize="large" style={{ margin: "10px 15px" }} />
                         <h3 style={{ margin: "10px 15px" }} >I Want To Drive</h3>
