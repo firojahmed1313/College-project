@@ -1,7 +1,8 @@
-import { DisableCar } from "../model/disableCar";
+import {DisableCar}  from "../model/disableCar.js";
 
 export const disableCarData =async(req,res,next) => {
-    const id = req.params.id;
+    const id = req.params.liId;
+    console.log(id);
     const data=await DisableCar.find({licence_id:id});
     res.status(200).json({
         success: true,

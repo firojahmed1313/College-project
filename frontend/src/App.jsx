@@ -17,6 +17,7 @@ import Cookies from 'js-cookie'
 import abi from "./blokchain/contact/carPool.json"
 import { ethers } from "ethers"
 import { PageTransition } from '@steveeeie/react-page-transition';
+import Test from "./pages/Test";
 const Paget = () => {
   let routes = useRoutes([
     { path: '/', element: <Home /> },
@@ -130,6 +131,7 @@ const App = () => {
         <Route path="/location" element={<Location />} />
         <Route path="/driverProfile" element={<DriverProfile />} />
         <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/test" element={<Test />} />
       </Routes>}
     </>
   );
