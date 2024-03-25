@@ -139,7 +139,7 @@ form {
   flex-direction: column;
   min-height: max(fit-content, 80vh);
   border-radius: 5px;
-  width: 40vw;
+  width: 70vw;
   background-color: #cbf7f7;
   align-items: center;
   justify-content: space-evenly;
@@ -196,12 +196,25 @@ form>input[type="submit"]:hover {
 .formiconplusi {
   border: 1px solid rgba(70, 70, 70, 0.5);
   display: flex;
+  width: 70%;
   align-items: center;
+  justify-content: flex-start;
   border-radius: 20px;
   padding: 2px 5px;
   margin-bottom: 30px;
 }
 
+.formiconplusiradio{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.formiconplusiradiobutton{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 /* home blog*/
 
 .homeBlog {

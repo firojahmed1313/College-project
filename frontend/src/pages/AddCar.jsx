@@ -37,6 +37,7 @@ const AddCar = () => {
 
     const inputEvent = (e) => {
         const { name, value } = e.target;
+        console.log(name, value);
         setCar({ ...car, [name]: value });
     };
 
@@ -64,7 +65,7 @@ const AddCar = () => {
                 //const data8 = await contract.addCar("0x6501Baf726FA584f163C68379546fE3f059EA014", "2", "111", "Tata Nano", "WB124", "medium","789654", "789456123", "20", "KOL", "KAL");
                 await data8.wait();
                 if (data8) {
-                    
+
                     console.log(data8);
                     toast.success("Car Added", {
                         position: "top-center",
@@ -151,16 +152,22 @@ const AddCar = () => {
                             onChange={inputEvent}
                         />
                     </div>
+
                     <div className="formiconplusi">
                         <FilterAltOffIcon fontSize="large" />
-                        <input
+                        {/*<div className="formiconplusiradio" value={car.category} onChange={inputEvent}>
+                            <div ><input type="radio" value="MICRO" name="category" /> MICRO</div>
+                            <div ><input type="radio" value="SUV" name="category" /> SUV</div>
+                            <div ><input type="radio" value="MINIVAN" name="category" /> MINIVAN</div>
+                        </div>*/}
+                        {<input
                             placeholder="Enter Your category"
                             type="text"
                             name="category"
                             id="category"
                             value={car.category}
                             onChange={inputEvent}
-                        />
+                        />}
                     </div>
                     <div className="formiconplusi">
                         <LocalPhoneIcon fontSize="large" />

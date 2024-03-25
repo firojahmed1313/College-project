@@ -2,7 +2,7 @@ import {DisableCar}  from "../model/disableCar.js";
 
 export const disableCarData =async(req,res,next) => {
     const id = req.params.liId;
-    console.log(id);
+    //console.log(id);
     const data=await DisableCar.find({licence_id:id});
     res.status(200).json({
         success: true,
@@ -11,7 +11,9 @@ export const disableCarData =async(req,res,next) => {
 };
 
 export const addDisablCar = async(req, res, next) => {
-    const { carOwner, num_of_seat, vehicle, vehicleNo, category, licence_id, phoneNumber, rent, from, dest } = req.body;
+    const { carOwner, num_of_seat, vehicle, vehicleNo, category, licence_id, phoneNumber, rent, from, dest } = req.body.carData;
+    //console.log(carOwner, num_of_seat, vehicle, vehicleNo, category, licence_id, phoneNumber, rent, from, dest);
+    //console.log(req.body)
     const disableCar = await DisableCar.create({
         carOwner,
         num_of_seat,
