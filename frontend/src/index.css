@@ -163,6 +163,7 @@ form>h1 {
 
 input {
   padding: 1vmax;
+  /*width: fit-content;*/
   width: 30vw;
   outline: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -170,7 +171,7 @@ input {
   font-size: 1.3vmax;
   border: none;
   margin-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 20px;
   background-color: #cbf7f7;
 }
 
@@ -185,6 +186,7 @@ form>input[type="submit"] {
   font-size: 1.4vmax;
   transition: all 0.5s;
 
+
 }
 
 form>input[type="submit"]:hover {
@@ -196,6 +198,7 @@ form>input[type="submit"]:hover {
 .formiconplusi {
   border: 1px solid rgba(70, 70, 70, 0.5);
   display: flex;
+  /* width: fit-content; */
   width: 70%;
   align-items: center;
   justify-content: flex-start;
@@ -205,10 +208,11 @@ form>input[type="submit"]:hover {
 }
 
 .formiconplusiradio{
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  
+ 
 }
 .formiconplusiradiobutton{
   display: flex;

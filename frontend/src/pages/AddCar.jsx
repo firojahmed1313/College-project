@@ -156,9 +156,9 @@ const AddCar = () => {
                     <div className="formiconplusi">
                         <FilterAltOffIcon fontSize="large" />
                         {/*<div className="formiconplusiradio" value={car.category} onChange={inputEvent}>
-                            <div ><input type="radio" value="MICRO" name="category" /> MICRO</div>
-                            <div ><input type="radio" value="SUV" name="category" /> SUV</div>
-                            <div ><input type="radio" value="MINIVAN" name="category" /> MINIVAN</div>
+                            <div><input type="radio" value="MICRO" name="category" /> MICRO</div>
+                            <div><input type="radio" value="SUV" name="category" /> SUV</div>
+                            <div><input type="radio" value="MINIVAN" name="category" /> MINIVAN</div>
                         </div>*/}
                         {<input
                             placeholder="Enter Your category"
