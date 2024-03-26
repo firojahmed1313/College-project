@@ -7,6 +7,10 @@ const BookDetails = () => {
   console.log(auth);
   const { contract } = auth.state;
   console.log(contract);
+  const compliteRide=async()=>{
+    console.log("compliteRide");
+    alert("compliteRide");
+  }
   useEffect(() => {
     const carCount = async () => {
       try {
@@ -39,6 +43,7 @@ const BookDetails = () => {
         <h5 className="carData"><span className="carDataSpan" >Dest : </span> {carDetails[4]}</h5>
         <h5 className="carData"><span className="carDataSpan" >Booked VehicleNo : </span> {carDetails[6][6]}</h5>
       </div>
+      <button  onClick={compliteRide}>Ride Complite</button>
       </>
       :<h2>No Booking</h2>
     }
