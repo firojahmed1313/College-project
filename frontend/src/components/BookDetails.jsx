@@ -9,7 +9,7 @@ const BookDetails = () => {
   console.log(contract);
   const compliteRide=async()=>{
     console.log("compliteRide");
-    alert("compliteRide");
+    alert("compliteRide setSelected bookedList");
   }
   useEffect(() => {
     const carCount = async () => {

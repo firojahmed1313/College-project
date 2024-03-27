@@ -53,7 +53,7 @@ const ProfileNav = ({ d }) => {
                     <div className="profileemail">
                         {auth.user.email}
                     </div>
-                    <button onClick={() => editBlog} type="submit">
+                    <button  type="submit">
                         {d}
                     </button>
                 </div>

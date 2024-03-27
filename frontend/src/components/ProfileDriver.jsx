@@ -17,7 +17,7 @@ const ProfileDriver = ({ card }) => {
       <div className='allCar'>
         <AllCarDetails cardetails={card} />
       </div>
-      <div className='allCar'>
+      <div className='booked'>
         <AllDisableCarDetails cardetails={card} />
       </div>
       <div className='allCar'>

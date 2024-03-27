@@ -4,11 +4,12 @@ const AllCarDetails = ({ cardetails }) => {
   console.log(cardetails);
   const disibleCar=()=>{
     console.log("disibleCar");
-    alert("disibleCar");
+    alert("disibleCar cardeleteRecord add test post");
   }
   const deleteCar=()=>{
     console.log("deleteCar");
-    alert("deleteCar");
+    alert("deleteCar cardeleteRecord");
+    //cardeleteRecord
   }
   return (
     <>
@@ -17,7 +18,7 @@ const AllCarDetails = ({ cardetails }) => {
         {(cardetails) ? cardetails?.map((data) => {
 
           return (
-            <div style={{ "display": "flex", "flexDirection": "column", "alignItems": "center" ,"border":"2px solid blue" }}>
+            <div style={{ "display": "flex", "flexDirection": "column", "alignItems": "center" }}>
               <div className='AllCarDetails' key={data[3].toString()}>
                 <h5 className="carData"><span className="carDataSpan" >Owner :</span> {(data[0]).substring(0, 20)}...</h5>
                 <h5 className="carData"><span className="carDataSpan" >Driver : </span> {(data[1]).substring(0, 20)}...</h5>

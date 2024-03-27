@@ -5,6 +5,7 @@ const AllBookedCarDetails = () => {
     <details>
       <summary >List Of Your Booked Car : </summary>
         <div>AllBookedCarDetails</div>
+        <div>getBookedCarBylicenceId</div>
     </details>
   )
 }
