@@ -32,3 +32,14 @@ export const addDisablCar = async(req, res, next) => {
         massage: "Disable Car Added Sucessfully",
     });
 };
+
+export const disableCarDelete = async(req, res, next) => {
+    const id = req.params.id;
+    //console.log(id);
+    const disableCar = await DisableCar.findByIdAndDelete(id);
+    res.status(200).json({
+        success: true,
+        disableCar,
+        massage: "Disable Car Deleted Sucessfully",
+    });
+};

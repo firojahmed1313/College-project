@@ -61,7 +61,7 @@ const App = () => {
 
   useEffect(() => {
     const connectWallet = async () => {
-      const contractAddress = "0x54d6CA2FB7b2b629cb98B09D51A8EA6bB2e9297c";
+      const contractAddress = "0xE7c6bA663f97EbBa3EDCA696501Ee97741516358";
       const contractABI = abi.abi;
       try {
         const { ethereum } = window;

@@ -38,17 +38,17 @@ const Map = () => {
                             return (
 
                                 <div className='mapsubContener' key={driver[3].toString()}>
-                                    <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {driver[2].toString()}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >CarId : </span> {driver[3].toString()}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >Name : </span> {driver[4]}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >Vehicle : </span> {driver[5]}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >VehicleNo :</span>  {driver[6]}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >Category : </span> {driver[7]}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >Licence_id : </span> {driver[8]}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >PhoneNumber :</span>  {driver[9]}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >Rent : </span> {driver[10].toString()}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >From : </span> {driver[11]}</h5>
-                                    <h5 className="carData"><span className="carDataSpan" >Dest : </span> {driver[12]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {driver[0].toString()}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >CarId : </span> {driver[1].toString()}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >Name : </span> {driver[2]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >Vehicle : </span> {driver[3]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >VehicleNo :</span>  {driver[4]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >Category : </span> {driver[5]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >Licence_id : </span> {driver[6]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >PhoneNumber :</span>  {driver[7]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >Rent : </span> {driver[8].toString()}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >From : </span> {driver[9]}</h5>
+                                    <h5 className="carData"><span className="carDataSpan" >Dest : </span> {driver[10]}</h5>
 
                                     <button onClick={() => onBookfun(driver)} type="submit">
                                         Book

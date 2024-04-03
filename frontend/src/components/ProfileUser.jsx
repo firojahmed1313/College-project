@@ -85,17 +85,16 @@ const ProfileUser = ({ car }) => {
             <>
               <h2>YOUR BOOKING CAR : </h2>
               <div className='paymentProfilesubContaner'>
-                <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {book[2].toString()}</h5>
-                <h5 className="carData"><span className="carDataSpan" >CarId : </span> {book[3].toString()}</h5>
-                <h5 className="carData"><span className="carDataSpan" >Name : </span> {book[4]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >Vehicle : </span> {book[5]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >VehicleNo :</span>  {book[6]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >Category : </span> {book[7]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >Licence_id : </span> {book[8]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >PhoneNumber :</span>  {book[9]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >Rent : </span> {book[10].toString()}</h5>
-                <h5 className="carData"><span className="carDataSpan" >From : </span> {book[11]}</h5>
-                <h5 className="carData"><span className="carDataSpan" >Dest : </span> {book[12]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {book[1].toString()}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Name : </span> {book[2]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Vehicle : </span> {book[3]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >VehicleNo :</span>  {book[4]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Category : </span> {book[5]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Licence_id : </span> {book[6]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >PhoneNumber :</span>  {book[7]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Rent : </span> {book[8].toString()}</h5>
+                <h5 className="carData"><span className="carDataSpan" >From : </span> {book[9]}</h5>
+                <h5 className="carData"><span className="carDataSpan" >Dest : </span> {book[10]}</h5>
                 <button onClick={onPayment} type="submit">
                   Payment
                 </button>

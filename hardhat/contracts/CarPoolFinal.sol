@@ -4,8 +4,7 @@ pragma solidity ^0.8.24;
 //pragma solidity optimizer runs=200;
 //0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,3,qwe,we,re,ert,123,111111,13,kol,des
 //kol,des,1234567,re
-// add user with payment and setSelected*
-//GET CHANGE*
+//getAvailableCarBylicenceId - why deleted add
 
 contract CarpoolingSystemFinal {
     address driver;
