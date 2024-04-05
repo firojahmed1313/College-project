@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import context from '../context/Context';
+import { useNavigate } from 'react-router';
 
 const BookDetails = () => {
   const auth = useContext(context);
   const [carDetails,setCarDetails]=useState();
+  const navigation = useNavigate();
   console.log(auth);
   const { contract } = auth.state;
   console.log(contract);
@@ -13,6 +15,7 @@ const BookDetails = () => {
     try {
       const data= await contract.bookedList(carDetails[5][4],auth.user.licence_id) ;
       console.log(data);
+      navigation('/driverProfile');
     } catch (error) {
       console.warn(error.message);
     }
@@ -21,8 +24,8 @@ const BookDetails = () => {
     const carCount = async () => {
       try {
         const data5 = await contract.getSelected(auth.user.licence_id);
-        console.log(data5[0]);
-        setCarDetails(data5);
+        console.log(data5);
+        (data5[0]!="0x0000000000000000000000000000000000000000")? setCarDetails(data5) :null
       } catch (error) {
         console.warn(error);
       }

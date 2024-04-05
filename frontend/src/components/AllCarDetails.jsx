@@ -70,8 +70,8 @@ const AllCarDetails = ({ cardetails }) => {
         {(cardetails) ? cardetails?.map((data) => {
 
           return (
-            <div style={{ "display": "flex", "flexDirection": "column", "alignItems": "center" }}>
-              <div className='AllCarDetails' key={data[3].toString()}>
+            <div style={{ "display": "flex", "flexDirection": "column", "alignItems": "center" }} key={data[3].toString()}>
+              <div className='AllCarDetails' >
                 <h5 className="carData"><span className="carDataSpan" >Owner :</span> {(data[0]).substring(0, 20)}...</h5>
                 <h5 className="carData"><span className="carDataSpan" >Num of Seat : </span> {data[1].toString()}</h5>
                 <h5 className="carData"><span className="carDataSpan" >Name : </span> {data[2]}</h5>
