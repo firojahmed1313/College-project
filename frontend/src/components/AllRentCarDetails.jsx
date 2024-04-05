@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import context from '../context/Context';
 
 const AllRentCarDetails = ({ carDetails }) => {
   console.log(carDetails);
+  const [userBookedCar, setUserBookedCar] = useState("")
+  const auth = useContext(context);
+  console.log(auth);
+  const { contract } = auth.state;
+  useEffect(() => {
+    const getUserRentCar = async () => {
+      try {
+        console.log(auth.user.phone);
+        const data2 = await contract.getAvailableUser(auth.user.phone);
+        console.log(data2);
+        setUserBookedCar(data2)
+
+      } catch (error) {
+        console.warn(error)
+      }
+    }
+
+    getUserRentCar();
+  }, [])
+  console.log(userBookedCar);
   return (
     <>
-      {(carDetails.length != 0) ?
+      {(userBookedCar.length != 0) ?
         <>
           <details>
             <summary>List Of Your Booked Car : </summary>
-            {carDetails.map((data) => {
+            {userBookedCar.map((data) => {
               return (
                 <div className='AllCarDetails' key={data[5][3].toString()}>
                   <h5 className="carData"><span className="carDataSpan" >Owner :</span> {data[5][0].substring(0, 20)}...</h5>

@@ -12,7 +12,7 @@ const UserProfile = () => {
   console.log(auth);
   
   const { contract } = auth.state;
-  useEffect(() => {
+  /*useEffect(() => {
     const getUserRentCar = async () => {
       try {
         console.log(auth.user.phone);
@@ -26,7 +26,7 @@ const UserProfile = () => {
     }
 
     getUserRentCar();
-  }, [])
+  }, [])*/
   const burl = import.meta.env.VITE_URL;
   useEffect(() => {
     const getProfile = async () => {
@@ -59,7 +59,7 @@ const UserProfile = () => {
 
 
 
-  console.log(userBookedCar);
+  //console.log(userBookedCar);
   return (
     <div className="profile">
       <div className="profileNav">

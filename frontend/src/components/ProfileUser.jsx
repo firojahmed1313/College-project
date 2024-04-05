@@ -17,8 +17,8 @@ const ProfileUser = ({ car }) => {
     "from":auth.depert?.toUpperCase(),
     "dest":auth.goingto?.toUpperCase(),
     "phone_no":auth.user.phone,
-    "vehicleNo":book[6],
-    "licence_id":book[8]
+    "vehicleNo":book[4],
+    "licence_id":book[6]
   }
   console.log(addUserData);
   const onPayment = async (e) => {
@@ -39,7 +39,7 @@ const ProfileUser = ({ car }) => {
         progress: undefined,
         theme: "dark",
       });
-      auth.setBoo("");
+      auth.setBook("");
       console.log(transaction);
       //const Useraddincon = await contract.addUser(addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo);
       //await Useraddincon.wait();

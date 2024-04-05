@@ -9,7 +9,13 @@ const BookDetails = () => {
   console.log(contract);
   const compliteRide=async()=>{
     console.log("compliteRide");
-    alert("compliteRide setSelected bookedList");
+    //alert("compliteRide setSelected bookedList");
+    try {
+      const data= await contract.bookedList(carDetails[5][4],auth.user.licence_id) ;
+      console.log(data);
+    } catch (error) {
+      console.warn(error.message);
+    }
   }
   useEffect(() => {
     const carCount = async () => {
@@ -36,12 +42,11 @@ const BookDetails = () => {
       <h2>BOOKING DETAILS :</h2>
       <div className='AllCarDetails'>
         <h5 className="carData"><span className="carDataSpan" >User :</span> {carDetails[0]}</h5>
-        <h5 className="carData"><span className="carDataSpan" >Name : </span> {carDetails[1]}</h5>
-        <h5 className="carData"><span className="carDataSpan" >UserId : </span> {carDetails[2].toString()}</h5>
-        <h5 className="carData"><span className="carDataSpan" >Phone No : </span> {carDetails[5]} </h5>
-        <h5 className="carData"><span className="carDataSpan" >From : </span> {carDetails[3]} </h5>
-        <h5 className="carData"><span className="carDataSpan" >Dest : </span> {carDetails[4]}</h5>
-        <h5 className="carData"><span className="carDataSpan" >Booked VehicleNo : </span> {carDetails[6][6]}</h5>
+        <h5 className="carData"><span className="carDataSpan" >UserId : </span> {carDetails[1].toString()}</h5>
+        <h5 className="carData"><span className="carDataSpan" >Phone No : </span> {carDetails[4]} </h5>
+        <h5 className="carData"><span className="carDataSpan" >From : </span> {carDetails[2]} </h5>
+        <h5 className="carData"><span className="carDataSpan" >Dest : </span> {carDetails[3]}</h5>
+        <h5 className="carData"><span className="carDataSpan" >Booked VehicleNo : </span> {carDetails[5][4]}</h5>
       </div>
       <button  onClick={compliteRide}>Ride Complite</button>
       </>

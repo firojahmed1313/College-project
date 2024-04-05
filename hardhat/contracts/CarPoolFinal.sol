@@ -5,6 +5,7 @@ pragma solidity ^0.8.24;
 //0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2,3,qwe,we,re,ert,123,111111,13,kol,des
 //kol,des,1234567,re
 //getAvailableCarBylicenceId - why deleted add ====solved  isDeleted[_vehicleNo] = false;
+//getSelected only licence_id not vehicleNo 
 
 contract CarpoolingSystemFinal {
     address driver;
@@ -170,21 +171,13 @@ contract CarpoolingSystemFinal {
         return currentUser;
     }
 
-    function setSelected(string memory _licence_id) public {
-        delete setSelectedDrivers[_licence_id] ;
-    }
 
-    function getSelected(string memory _vehicleNo,string memory _licence_id)
+    function getSelected(string memory _licence_id)
         public
         view
         returns (User memory)
     {
         string memory selectedDriver = setSelectedDrivers[_licence_id];
-        require(
-            keccak256(abi.encodePacked(selectedDriver)) ==
-                keccak256(abi.encodePacked(_vehicleNo)),
-            "Only CHOOSE driver can perform this action"
-        );
         return user_by_vehicleNo[selectedDriver];
     }
 
@@ -216,6 +209,7 @@ contract CarpoolingSystemFinal {
         setSelectedDrivers[car.licence_id] = _vehicleNo;
     }
     function bookedList(string memory _vehicleNo,string memory _licence_id) public  {
+        delete setSelectedDrivers[_licence_id] ;
         bookedDatabyvehicleNo[_licence_id].push(user_by_vehicleNo[_vehicleNo]);
     }
 
