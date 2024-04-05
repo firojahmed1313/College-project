@@ -53,6 +53,7 @@ async function main() {
     await Caraddincon.wait();
     //console.log(Caraddincon);
     console.log(Caraddincon.to, "from", Caraddincon.from);
+    /*
     const Caraddincon2 = await carDeploy.connect(driver2).addCar(owner.address, "3", "qwe", "we", "rer", "ert", "123456", "111111", "13", "kol", "des");
     await Caraddincon2.wait();
     //console.log(Caraddincon);
@@ -85,14 +86,26 @@ async function main() {
     await selectBOOKCar.wait();
     console.log(selectBOOKCar.to, "from", selectBOOKCar.from);
     const BookedCar = await carDeploy.connect(driver1).getBookedCarBylicenceId("1234");
-    console.log("getBookedCarBylicenceId",BookedCar);
+    console.log("getBookedCarBylicenceId",BookedCar);*/
     await cosoleBalances(addresses);
     const deleteCar = await carDeploy.connect(driver1).cardeleteRecord("123");
-    const AvailableCarpoolByDest2 = await carDeploy.getAvailableCarByDest("koldes");
+    /*const AvailableCarpoolByDest2 = await carDeploy.getAvailableCarByDest("koldes");
     console.log( "getAvailableCarByDest",AvailableCarpoolByDest2);
     const getCar2 = await carDeploy.connect(driver2).setSelected("1234");
     const selectCar3 = await carDeploy.connect(driver2).getSelected("rer","123456");
-    console.log("getSelectedlast",selectCar3);
+    console.log("getSelectedlast",selectCar3);*/
+    const AvailableCarpoolByLicence3 = await carDeploy.getAvailableCarBylicenceId("1234");
+    console.log("getAvailableCarBylicenceId3",AvailableCarpoolByLicence3);
+    const Caraddincon3 = await carDeploy.connect(driver1).addCar(carData.carOwner, carData.num_of_seat, carData.name, carData.vehicle, carData.vehicleNo, carData.category, carData.licence_id, carData.phoneNumber, carData.rent, carData.from, carData.dest);
+    await Caraddincon3.wait();
+    //console.log(Caraddincon);
+    console.log(Caraddincon3.to, "from", Caraddincon3.from);
+    const deleteCar2 = await carDeploy.connect(driver1).cardeleteRecord("123");
+    const Caraddincon4 = await carDeploy.connect(driver1).addCar(carData.carOwner, carData.num_of_seat, carData.name, carData.vehicle, carData.vehicleNo, carData.category, carData.licence_id, carData.phoneNumber, carData.rent, carData.from, carData.dest);
+    await Caraddincon4.wait();
+    const AvailableCarpoolByLicence4 = await carDeploy.getAvailableCarBylicenceId("1234");
+
+    console.log("getAvailableCarBylicenceId4",AvailableCarpoolByLicence4);
 
 
 }
