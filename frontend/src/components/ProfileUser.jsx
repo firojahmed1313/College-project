@@ -25,7 +25,7 @@ const ProfileUser = ({ car }) => {
     
     try {
       const amount = { value: ethers.parseEther("0.01") };
-      const transaction = await contract.makePayment(addUserData.name,addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo,addUserData.licence_id, amount);
+      const transaction = await contract.makePayment(addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo, amount);
       await transaction.wait();
       console.log("Transaction is done");
       console.log("Payment Sucessfull Wait For Booking");
@@ -39,6 +39,7 @@ const ProfileUser = ({ car }) => {
         progress: undefined,
         theme: "dark",
       });
+      auth.setBoo("");
       console.log(transaction);
       //const Useraddincon = await contract.addUser(addUserData.from, addUserData.dest, addUserData.phone_no,addUserData.vehicleNo);
       //await Useraddincon.wait();
