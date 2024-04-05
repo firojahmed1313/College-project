@@ -28,8 +28,9 @@ const Map = () => {
         <>
             <h2 className='maph2'>List All Driver :</h2>
             <div className='mapCatagory'>
-                <button>Firoj</button>
-                <button>Firoj</button>
+                <button>MICRO</button>
+                <button>SUV</button>
+                <button>MINIVAN</button>
             </div>
             <div className='mapContener'>
                 <div className='showmapContener' >
