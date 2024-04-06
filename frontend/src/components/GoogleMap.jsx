@@ -3,7 +3,7 @@ import locationmap from '../assets/locationMap.png'; // with import
 const fetchCoordinates = async (cityName) => {
     const apiKey = "AIzaSyDGKcl7--OS9RAZC1gCtJaubTiktNFxGAA";
     const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
-
+/*
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -18,7 +18,7 @@ const fetchCoordinates = async (cityName) => {
     } catch (error) {
         console.error('Error fetching coordinates:', error);
         return null;
-    }
+    }*/
 };
 const cities = ['Sydney', 'Melbourne'];
 

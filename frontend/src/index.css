@@ -324,6 +324,7 @@ form>input[type="submit"]:hover {
 .mapCatagory{
   margin: auto;
   display: flex;
+  margin-top: 15px;
   align-items: center;
   justify-content: space-evenly;
   width: 90%;
@@ -650,9 +651,8 @@ form>input[type="submit"]:hover {
   }
 
   .mapContener {
-    border: 2px solid green;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -759,9 +759,8 @@ form>input[type="submit"]:hover {
   }
 
   .mapContener {
-    border: 2px solid green;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
