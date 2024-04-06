@@ -51,7 +51,7 @@ const AllDisableCarDetails = () => {
             progress: undefined,
             theme: "dark",
           });
-          navigation('/driverProfile');
+          navigation('/');
         } else {
           throw new Error("Contract addCar function returned undefined");
         }

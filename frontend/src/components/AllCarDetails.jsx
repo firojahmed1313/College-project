@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import context from '../context/Context';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const AllCarDetails = ({ cardetails }) => {
   console.log(cardetails);
+  const navigation = useNavigate();
   const auth = useContext(context);
   const { contract } = auth.state;
   console.log(contract);
@@ -16,6 +18,7 @@ const AllCarDetails = ({ cardetails }) => {
         console.log(data[4]);
         const data2 = await contract.cardeleteRecord(data[4]);
         console.log(data2);
+        navigation('/');
       } catch (error) {
         console.warn(error);
       }
@@ -56,6 +59,7 @@ const AllCarDetails = ({ cardetails }) => {
         console.log(data[4]);
         const data2 = await contract.cardeleteRecord(data[4]);
         console.log(data2);
+        navigation('/');
       } catch (error) {
         console.warn(error);
       }
