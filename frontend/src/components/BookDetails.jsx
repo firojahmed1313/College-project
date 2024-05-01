@@ -15,7 +15,7 @@ const BookDetails = () => {
     try {
       const data= await contract.bookedList(carDetails[5][4],auth.user.licence_id) ;
       console.log(data);
-      navigation('/driverProfile');
+      navigation('/');
     } catch (error) {
       console.warn(error.message);
     }
