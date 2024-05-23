@@ -29,7 +29,7 @@ config({
 app.use(cors({
   
     origin: process.env.FRONTED_URL,
-    //origin: "https://5173-firojahmed1-collegeproj-q61ufo89vz5.ws-us108.gitpod.io",
+    //origin: "https://5173-firojahmed1-collegeproj-q61ufo89vz5.ws-us114.gitpod.io",
     methods:["GET" ,"POST" , "PUT" , "DELETE"],
     credentials: true,
     optionSuccessStatus:200
@@ -46,6 +46,7 @@ mongoose.connect(DB_URL, {
 }).catch((error) => {
     console.log(error())
 })
+
 
 app.use("/", userRouter);
 app.use("/", driverRouter);

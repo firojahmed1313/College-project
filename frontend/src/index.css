@@ -124,7 +124,9 @@ navitem:focus-visible {
   justify-content: center;
   align-items: center;
   height: inherit;
-  background-color: #141ff45f;
+  /*background-color: #141ff45f;*/
+  background-image: url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -141,6 +143,8 @@ form {
   border-radius: 5px;
   width: 70vw;
   background-color: #cbf7f7;
+  /*background: url("./assets/bakForm.png") no-repeat center center/cover;*/
+  background-size: 80vw,80vh;
   align-items: center;
   justify-content: space-evenly;
   box-shadow: -10px 10px 10px rgba(0, 3, 7, 0.25);
