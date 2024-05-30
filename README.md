@@ -43,7 +43,7 @@ npm run dev
 ```bash
 cd frontend
 ```
-9. create a `.env` file.we have provided some default values in the `ENV` to reduce the burden, but some parameters are mandatory:
+9. create a `.env` file. we have provided some default values in the `ENV` to reduce the burden, but some parameters are mandatory:
    - `VITE_URL`: Change the URL to your back-end URL for cors.
 10. Install the packages:
 
@@ -56,18 +56,40 @@ npm install
 ```bash
 npm run dev
 ```
-12.
+12. Navigate to the `hardhat` project directory.
+```bash
+cd hardhat
+```
+13. Install the packages
+```bash
+npm install --save-dev hardhat
+```
+14. Navigate to the `hardhat`.we have provided some default values in the `ENV` to reduce the burden, but some parameters are mandatory:
+```bash
+cd hardhat
+```
+   -`URL_FINAL`: Url of your Dapp provder.
+   -`PRIVATE_KEY`: Private Key of your account.
+15. To run tests, run the following command
 
+```bash
+  npx hardhat test
+```
+16. To Deploy, run the following command
 
+```bash
+  npx hardhat run scripts/deploy.js
+```
+17. To Deploy contact in sepolia testNet, run the following command
 
-
-
-
+```bash
+  npx hardhat run --network sepolia scripts/deployFinalTestNet.js
+```
 
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[Documentation]([https://linktodocumentation](https://drive.google.com/file/d/1sdH92k1uF0fr1BgTIARbHmKVAaUZAngP/view))
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
