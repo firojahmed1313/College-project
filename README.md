@@ -39,9 +39,24 @@ npm run dev
    - `DB_URL`: Provide the MongoDB Atlas database URL. An example is prefilled for you, edit/update it to continue.
    - `ACCESS_TOKEN_SECRET`: It is advised to change the default value to your own secret value.
    - `FRONTED_URL`: Change the URL to your front-end URL for cors.
-8. 
+8. Navigate to the `frontend` project directory.
+```bash
+cd frontend
+```
+9. create a `.env` file.we have provided some default values in the `ENV` to reduce the burden, but some parameters are mandatory:
+   - `VITE_URL`: Change the URL to your back-end URL for cors.
+10. Install the packages:
 
+```bash
+npm install
+```
 
+11. Run the project:
+
+```bash
+npm run dev
+```
+12.
 
 
 
