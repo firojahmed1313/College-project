@@ -89,7 +89,7 @@ cd hardhat
 
 ## Documentation
 
-[Documentation]([https://linktodocumentation](https://drive.google.com/file/d/1sdH92k1uF0fr1BgTIARbHmKVAaUZAngP/view))
+[Documentation](https://drive.google.com/file/d/1sdH92k1uF0fr1BgTIARbHmKVAaUZAngP/view)
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
